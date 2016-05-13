@@ -19,23 +19,19 @@ const signInSuccess = (data) => {
 const changePWSuccess = (data) => {
   console.log("Password successfully changed");
   console.log(data);
-  // $("#change-pw-modal").modal('hide');
-  // $(".modal-backdrop").hide();
-  // $("#success-pw-modal").modal('show');
+  // show div that says 'successfully changed password'
 };
 
 const changePWFail = (error) => {
   console.error(error);
-  // $("#change-pw-modal").modal('hide');
-  // $("#pw-change-fail-modal").modal('show');
+  // show div that says 'error changing password'
 };
 
 const registerSuccess = (data) => {
   console.log("Registration successful");
-  // $("#sign-up-modal").modal('hide');
-  // $("#success-reg-modal").modal('show');
   app.user = data.user;
   console.log(data.user);
+  // call sign in function here
 };
 
 const success = (data) => {
@@ -44,14 +40,12 @@ const success = (data) => {
 
 const signInFail = (error) => {
   console.error(error);
-  // $("#log-in-modal").modal('hide');
-  // $("#log-in-fail-modal").modal('show');
+  // show div that says 'Invalid e-mail or password'
 };
 
 const regFail = (error) => {
   console.error(error);
-  // $("#sign-up-modal").modal('hide');
-  // $("#reg-fail-modal").modal('show');
+  // show div that says 'E-mail already registered. Please sign in or sign up with a different e-mail'
 };
 
 const failure = (error) => {
