@@ -16,14 +16,13 @@ const addHandlers = () => {
     event.preventDefault();
     authApi.signIn(authUi.signInSuccess, authUi.signInFail, data);
   });
-  $('#sign-out').on('submit', function(event) {
+  $('#sign-out-form').on('submit', function(event) {
     event.preventDefault();
     authApi.signOut(authUi.signOutSuccess, authUi.failure);
   });
-  $('#change-password').on('submit', function(event) {
+  $('#change-pw').on('submit', function(event) {
     event.preventDefault();
     let data = getFormFields(this);
-    console.log("change password clicked");
     authApi.changePW(authUi.changePWSuccess, authUi.changePWFail, data);
   });
 };
