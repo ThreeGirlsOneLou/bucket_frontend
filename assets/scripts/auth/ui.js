@@ -8,15 +8,26 @@ const signOutSuccess = (data) => {
   console.log("User successfully signed out");
   app.user = data;
   console.log(app.user);
+  $('#sign-out-modal').modal('hide');
+  $('#signed-in-menu').hide();
+  $('#sign-in-button').show();
+  $('#sign-up-button').show();
+  $('#username').text("Username");
 };
 
 const signInSuccess = (data) => {
   app.user = data.user;
   console.log(app.user);
   console.log(data.user.email + " successfully signed in");
+  $('#sign-in-modal').modal('hide');
+  $('#signed-in-menu').css('visibility', 'visible');
+  $('#sign-in-button').hide();
+  $('#sign-up-button').hide();
+  $('#username').text(app.user.email);
 };
 
 const changePWSuccess = (data) => {
+  $('#change-pw-modal').modal('hide');
   console.log("Password successfully changed");
   console.log(data);
   // show div that says 'successfully changed password'
