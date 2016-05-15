@@ -50,12 +50,18 @@
       </nav>
 <!--END NAV BAR -->
 
-<div id="map"></div>
-
-
-
-
-
+<div class="row">
+  <div class="col-md-6">
+    <!--MAP-->
+    <input id="pac-input" class="controls" type="text" placeholder="Search for a location">
+    <div id="map"></div>
+    <!--END MAP-->
+  </div>
+  <div class="col-md-6">
+    <h3 id="search-result-name">test</h3>
+    <a href="#" id="add-button">Add to bucket list</a>
+  </div>
+</div>
 
   <!--MODALS-->
 
@@ -161,7 +167,7 @@
 
   <!-- for google map -->
       <script src="/assets/scripts/app/google_map.js"></script>
-      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAfYlV4_y1Lr54917CKyhT0uQ6WTtVjhTA&callback=initMap" async defer></script>
+      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAfYlV4_y1Lr54917CKyhT0uQ6WTtVjhTA&callback=initMap&libraries=places" async defer></script>
 
     </body>
 </html>
