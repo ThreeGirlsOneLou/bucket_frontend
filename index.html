@@ -5,6 +5,7 @@
 
       <script src="vendor.bundle.js" type="text/javascript" charset="utf-8" defer></script>
       <script src="bundle.js" type="text/javascript" charset="utf-8" defer></script>
+
     </head>
     <body class="container-fluid">
       <!--START NAV BAR-->
@@ -48,6 +49,12 @@
         </div><!-- /.container-fluid -->
       </nav>
 <!--END NAV BAR -->
+
+<div id="map"></div>
+
+
+
+
 
 
   <!--MODALS-->
@@ -119,7 +126,7 @@
           <h4 class="modal-title" id="myModalLabel">Are you sure you want to sign out?</h4>
         </div>
         <div class="modal-body">
-          <form id="sign-out">
+          <form id="sign-out-form">
             <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
             <button type="submit" class="btn btn-primary" id="btn-signout">Sign Out</button>
           </form>
@@ -151,6 +158,10 @@
       </div>
     </div>
   </div>
+
+  <!-- for google map -->
+      <script src="/assets/scripts/app/google_map.js"></script>
+      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAfYlV4_y1Lr54917CKyhT0uQ6WTtVjhTA&callback=initMap" async defer></script>
 
     </body>
 </html>
