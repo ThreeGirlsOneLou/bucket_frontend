@@ -24,7 +24,7 @@ const signOut = (success, failure) => {
   console.log("Sign out request queued");
   $.ajax({
     method: 'DELETE',
-    url: app.api + '/sign-out/' + app.user.id,
+    url: app.api + '/sign-out/' + app.user._id,
     headers: {
       Authorization: 'Token token=' + app.user.token,
     },
@@ -36,7 +36,7 @@ const changePW = (success, failure, data) => {
   console.log("Change password request queued");
   $.ajax({
     method: 'PATCH',
-    url: app.api + '/change-password/' + app.user.id,
+    url: app.api + '/change-password/' + app.user._id,
     data,
     headers: {
       Authorization: 'Token token=' + app.user.token,
