@@ -9,7 +9,7 @@
     </head>
     <body class="container-fluid">
       <!--START NAV BAR-->
-      <nav class="navbar navbar-default nav-box">
+      <nav class="navbar navbar-default nav-box navbar-fixed-top">
         <div class="container-fluid">
           <!-- Brand and toggle get grouped for better mobile display -->
           <div class="navbar-header">
@@ -49,6 +49,29 @@
         </div><!-- /.container-fluid -->
       </nav>
 <!--END NAV BAR -->
+
+  <!--LANDING PAGE-->
+  <header>
+        <div class="header-content">
+            <div class="inner">
+                <h1 class="cursive">BucketList</h1>
+            </div>
+        </div>
+        <video autoplay class="fillWidth fadeIn wow collapse in fadeOut" src="/assets/movies/video_0.mov" id="video-background" onended="run();"></video>
+
+        <script>
+          let video_count = 0;
+          let video = document.getElementById("video-background");
+
+          function run(){
+              video_count++;
+              if (video_count == 4) video_count = 0;
+              video.setAttribute("src","/assets/movies/video_"+video_count+".mov");
+            }
+        </script>
+
+  </header>
+  <!--END LANDING PAGE-->
 
 <div class="row">
   <div class="col-md-6">

@@ -3,3 +3,15 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import 'colors';
 @import 'typography';
 @import 'map';
+@import 'cover';
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+body.container-fluid {
+  margin: 0 auto;
+  padding: 0;
+}
