@@ -1,6 +1,7 @@
 'use strict';
 
 const app = require('../app-data.js');
+const loadMap = require('../app/google_map_signin.js');
 // const appApi = require('../app/api.js');
 // const appUi = require('../app/ui.js');
 
@@ -24,6 +25,7 @@ const signInSuccess = (data) => {
   $('#sign-in-button').hide();
   $('#sign-up-button').hide();
   $('#username').text(app.user.email);
+  loadMap.mapAddPoints();
 };
 
 const changePWSuccess = (data) => {
