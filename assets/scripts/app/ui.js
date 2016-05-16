@@ -25,10 +25,25 @@ const addLocationFailure = (data) => {
 
 };
 
+const getPhotosFailure = (data) => {
+  console.log('get photos failed');
+  console.log(data);
+
+};
+
+const getPhotosSuccess = (data) => {
+  console.log('Photo Success');
+  console.log(data);
+
+};
+
 module.exports = {
   getLocationsSuccess,
   getLocationsFailure,
   addLocationSuccess,
-  addLocationFailure
+  addLocationFailure,
+  getPhotosFailure,
+  getPhotosSuccess
+
 
 };
