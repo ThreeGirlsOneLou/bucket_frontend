@@ -57,9 +57,7 @@ const addSearchBar = function(map) {
     app.searchlong = place.geometry.location.lng();
 
     $('#search-result-name').text(place.formatted_address);
-    console.log('BURRITOS');
 
-    flickr.getPhotos(ui.getPhotosSuccess, ui.getPhotosFailure, 'London' );
     flickr.getPhotos(ui.getPhotosSuccess, ui.getPhotosFailure, $('#search-result-name').text() );
   });
 }
