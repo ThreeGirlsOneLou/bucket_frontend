@@ -14,6 +14,7 @@ const getUserLocations = (success, failure, user_id) => {
 };
 
 const addUserLocation = (success, failure, user_id, name, long, lat) => {
+  console.log('add location request queued');
   $.ajax({
     method: 'POST',
     url: app.api + '/locations',
@@ -37,7 +38,6 @@ const addUserLocation = (success, failure, user_id, name, long, lat) => {
   },
   }).done(success)
     .fail(failure)
-
 };
 
 const deleteUserLocation = () => {
