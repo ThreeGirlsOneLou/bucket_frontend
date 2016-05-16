@@ -10,7 +10,7 @@ const getUserLocations = (success, failure, user_id) => {
     "Content-Type": "application/json",
   },
   }).done(success)
-    .fail(failure)
+    .fail(failure);
 };
 
 const addUserLocation = (success, failure, user_id, name, long, lat) => {
@@ -37,11 +37,29 @@ const addUserLocation = (success, failure, user_id, name, long, lat) => {
     Authorization: 'Token token=' + app.user.token,
   },
   }).done(success)
-    .fail(failure)
+    .fail(failure);
 };
 
-const deleteUserLocation = () => {
-
+const deleteUserLocation = (success, failure, user_id, location_id) => {
+  $.ajax({
+    method: 'DELETE',
+    url: app.api + '/locations/' + location_id,
+    data: {
+      user: {
+        id: user_id
+      },
+      location: {
+        id: location_id
+      }
+    },
+    headers: {
+    "Content-Type": "application/json",
+  },
+    headers: {
+    Authorization: 'Token token=' + app.user.token,
+  },
+  }).done(success)
+    .fail(failure);
 };
 
 const updateUserLocation = () => {
@@ -52,5 +70,5 @@ module.exports = {
   getUserLocations,
   addUserLocation,
   deleteUserLocation,
-  updateUserLocation
+  updateUserLocation,
 };
