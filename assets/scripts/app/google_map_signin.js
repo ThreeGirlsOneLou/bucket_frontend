@@ -51,8 +51,9 @@ const addSearchBar = function(map) {
     infowindow.open(map, marker);
 
     $('#search-result-name').text(place.formatted_address);
+    console.log('BURRITOS');
 
-      flickr.getPhotos(ui.getPhotosSuccess, ui.getPhotosFailure,   $('#search-result-name').text() );
+      flickr.getPhotos(ui.getPhotosSuccess, ui.getPhotosFailure, 'London' );
   });
 }
 
