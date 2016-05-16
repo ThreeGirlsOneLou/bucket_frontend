@@ -1,6 +1,7 @@
 'use strict';
 
 const app = require('../app-data.js');
+const loadMap = require('../app/google_map_signin.js');
 
 const getLocationsSuccess = (data) => {
   console.log('win');
@@ -16,7 +17,8 @@ const getLocationsFailure = (data) => {
 const addLocationSuccess = (data) => {
   console.log('Success');
   console.log(data);
-
+  app.user = data.user;
+  loadMap.newPoint();
 };
 
 const addLocationFailure = (data) => {
@@ -34,7 +36,7 @@ const getPhotosFailure = (data) => {
 const getPhotosSuccess = (data) => {
   console.log('Photo Success');
   console.log(data);
-  
+
 
 
 };

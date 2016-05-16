@@ -10,8 +10,8 @@ const addHandlers = () => {
     event.preventDefault();
     let name = $('#search-result-name').text();
     let user_id = app.user._id;
-    let long = app.user.search.long;
-    let lat = app.user.search.lat;
+    let long = app.searchlong;
+    let lat = app.searchlat;
     appApi.addUserLocation(appUi.addLocationSuccess, appUi.addLocationFailure, user_id, name, long, lat);
   });
 };

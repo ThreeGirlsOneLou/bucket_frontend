@@ -3,6 +3,7 @@
 const app = require('../app-data.js');
 const flickr = require('./flickr.js');
 const ui = require('./ui.js');
+let map;
 
 const addSearchBar = function(map) {
   var input = /** @type {HTMLInputElement} */(
@@ -50,10 +51,16 @@ const addSearchBar = function(map) {
         place.formatted_address + '</div>');
     infowindow.open(map, marker);
 
+    app.searchname = place.name;
+    app.searchaddress = place.formatted_address;
+    app.searchlat = place.geometry.location.lat();
+    app.searchlong = place.geometry.location.lng();
+
     $('#search-result-name').text(place.formatted_address);
     console.log('BURRITOS');
 
-      flickr.getPhotos(ui.getPhotosSuccess, ui.getPhotosFailure, 'London' );
+    flickr.getPhotos(ui.getPhotosSuccess, ui.getPhotosFailure, 'London' );
+    flickr.getPhotos(ui.getPhotosSuccess, ui.getPhotosFailure, $('#search-result-name').text() );
   });
 }
 
@@ -62,7 +69,7 @@ const mapAddPoints = function() {
   let locations = app.user.locations;
   console.log(locations);
 
-  let map = new google.maps.Map(document.getElementById('map'), {
+  map = new google.maps.Map(document.getElementById('map'), {
     center: {lat: -33.8688, lng: 151.2195},
     zoom: 13,
     scrollwheel: false
@@ -76,19 +83,9 @@ const mapAddPoints = function() {
 
   addSearchBar(map);
 
-  // var goldStar = {
-  //   path: 'M 125,5 155,90 245,90 175,145 200,230 125,180 50,230 75,145 5,90 95,90 z',
-  //   fillColor: 'yellow',
-  //   fillOpacity: 1,
-  //   scale: 0.2,
-  //   strokeColor: 'gold',
-  //   strokeWeight: 1
-  // };
-
   for (i = 0; i < locations.length; i++) {
       marker = new google.maps.Marker({
            position: new google.maps.LatLng(locations[i].coords.lat, locations[i].coords.long),
-          //  icon: goldStar,
            map: map
       });
 
@@ -103,10 +100,25 @@ const mapAddPoints = function() {
   }
 
   map.fitBounds(bounds);
-  map.setZoom(10);
 
 };
 
+const newPoint = function() {
+  var marker_new = new google.maps.Marker({
+          position: new google.maps.LatLng(app.searchlat, app.searchlong),
+          title: 'new marker',
+          map: map
+      });
+  var infowindow_new = new google.maps.InfoWindow;
+  google.maps.event.addListener(marker_new, 'click', (function(marker_new) {
+       return function() {
+           infowindow_new.setContent('<div><strong>' + app.searchname + '</strong></div>');
+           infowindow_new.open(map, marker_new);
+       };
+  })(marker_new));
+};
+
 module.exports = {
-  mapAddPoints
+  mapAddPoints,
+  newPoint
 };
