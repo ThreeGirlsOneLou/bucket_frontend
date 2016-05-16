@@ -34,6 +34,8 @@ const getPhotosFailure = (data) => {
 const getPhotosSuccess = (data) => {
   console.log('Photo Success');
   console.log(data);
+  
+
 
 };
 
