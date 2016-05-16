@@ -2,12 +2,13 @@
 
 const app = require('../app-data.js');
 const flickr = require('./flickr.js');
-const ui = require('./ui.js');
 let map;
 
 const addSearchBar = function(map) {
   var input = /** @type {HTMLInputElement} */(
       document.getElementById('pac-input'));
+
+  const ui = require('./ui.js');
 
   // Create the autocomplete helper, and associate it with
   // an HTML text input box.
