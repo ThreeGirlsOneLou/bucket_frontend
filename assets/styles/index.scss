@@ -7,11 +7,26 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 
 html,
 body {
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
 }
 
 body.container-fluid {
   margin: 0 auto;
   padding: 0;
+}
+
+.location-list {
+  margin-top: 20px;
+}
+
+.flamingo {
+  width: 100%;
+  height: 100%;
+  background: none;
+  // content-fit: scale-down;
+}
+
+.flamingo:hover {
+  background-color: black;
 }
