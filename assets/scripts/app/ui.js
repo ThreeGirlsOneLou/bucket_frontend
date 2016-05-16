@@ -39,6 +39,8 @@ const getPhotosSuccess = (data) => {
   app.photos = data.photos.photo[0];
   let flickrURL = 'http://farm' + app.photos.farm + '.static.flickr.com/' + app.photos.server + '/' + app.photos.id + '_' + app.photos.secret + '.jpg';
   console.log(flickrURL);
+  $('#photoResult').html('<img src="' + flickrURL + '">');
+
 };
 
 module.exports = {
