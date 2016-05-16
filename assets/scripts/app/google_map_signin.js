@@ -1,6 +1,8 @@
 'use strict';
 
 const app = require('../app-data.js');
+const flickr = require('./flickr.js');
+const ui = require('./ui.js');
 
 const addSearchBar = function(map) {
   var input = /** @type {HTMLInputElement} */(
@@ -49,6 +51,8 @@ const addSearchBar = function(map) {
     infowindow.open(map, marker);
 
     $('#search-result-name').text(place.formatted_address);
+
+      flickr.getPhotos(ui.getPhotosSuccess, ui.getPhotosFailure,   $('#search-result-name').text() );
   });
 }
 
