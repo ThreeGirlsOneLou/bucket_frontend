@@ -12,7 +12,7 @@ const addHandlers = () => {
     let user_id = app.user._id;
     let long = app.searchlong;
     let lat = app.searchlat;
-    appApi.addUserLocation(appUi.addLocationSuccess, appUi.addLocationFailure, user_id, name, long, lat, app.flickrurl);
+    appApi.addUserLocation(appUi.addLocationSuccess, appUi.addLocationFailure, user_id, name, long, lat, app.flickrURL);
   });
 };
 
