@@ -1,18 +1,19 @@
 
+
+.flickr_row .col-md-6 {
+  height: 100vh;
+}
+
 #flickrResult {
   height: 100%;
   overflow: hidden;
   width: 100%;
 }
 
-.flickr_row .col-md-6 {
-  padding: 0;
-  height: 100vh;
-}
-
 #photoResult {
   height: 70%;
   width: 50vw;
+  overflow: hidden;
 }
 
 #search-result-name {
@@ -22,4 +23,9 @@
 
 #add-button {
   padding-left: 20px
+}
+
+.bucketContent {
+  padding: 50px;
+  border: 4px solid red;
 }
