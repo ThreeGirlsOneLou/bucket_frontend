@@ -13,7 +13,7 @@ const getUserLocations = (success, failure, user_id) => {
     .fail(failure);
 };
 
-const addUserLocation = (success, failure, user_id, name, long, lat) => {
+const addUserLocation = (success, failure, user_id, name, long, lat, url) => {
   console.log('add location request queued');
   $.ajax({
     method: 'POST',
@@ -27,7 +27,8 @@ const addUserLocation = (success, failure, user_id, name, long, lat) => {
         coords: {
           long: long,
           lat: lat
-        }
+        },
+        url: url
       }
     },
     headers: {
