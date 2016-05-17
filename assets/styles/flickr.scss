@@ -1,27 +1,28 @@
 
 
 .flickr_row .col-md-6 {
-  height: 100vh;
+  height: 96vh;
 }
 
 #flickrResult {
   height: 100%;
   overflow: hidden;
   width: 100%;
+  padding-top: 30px;
 }
 
 #photoResult {
-  height: 70%;
+  height: 75%;
   overflow: hidden;
 }
 
 #search-result-name {
-  padding-left: 20px;
-  font-size: 34px;
+  font-size: 20px;
 }
 
-#add-button {
-  padding-left: 20px
+#locationText {
+  height: 25%;
+  padding-left: 20px;
 }
 
 .bucketContent {
