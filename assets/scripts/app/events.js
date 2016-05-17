@@ -19,13 +19,17 @@ const addHandlers = () => {
   });
 
   $('#location-list').on('click','.visited', function (event){
-    event.preventDefault();
-    let location_id = $(this).data('location-id');
-    appApi.updateUserLocation(appUi.updateLocationSuccess,
-                              appUi.updateLocationFailure,
-                              app.user._id,
-                              location_id);
-    });
+      event.preventDefault();
+      let location_id = $(this).data('location-id');
+      let currentLocation = $.grep(app.user.locations, function(e) {
+        return e._id == location_id;
+      });
+      appApi.updateUserLocation(appUi.updateLocationSuccess,
+                                appUi.updateLocationFailure,
+                                app.user._id,
+                                location_id,
+                                (!currentLocation[0].visited));
+      });
 
     $('#location-list').on('click','.remove', function (event){
       event.preventDefault();
