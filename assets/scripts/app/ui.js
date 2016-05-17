@@ -18,7 +18,7 @@ const addLocationSuccess = (data) => {
   console.log('Success');
   console.log(data);
   app.user = data.user;
-  loadMap.newPoint();
+  loadMap.addPoints();
 };
 
 const addLocationFailure = (data) => {
