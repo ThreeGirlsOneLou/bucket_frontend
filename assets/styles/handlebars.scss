@@ -1,7 +1,7 @@
 .view {
   background: #fff;
   height: 200px;
-  // margin: 10px;
+  margin-bottom: 30px;
   // float: left;
   overflow: hidden;
   position: relative;
@@ -44,28 +44,40 @@
   margin: 20px 0 0 0
 }
 
-// .view p {
-//   font-family: Georgia, serif;
-//   font-style: italic;
-//   font-size: 12px;
-//   position: relative;
-//   color: #fff;
-//   padding: 10px 20px 20px;
-//   text-align: center
-// }
-
-.view a.info {
+.view a {
   display: inline-block;
   text-decoration: none;
-  padding: 7px 14px;
-  background: #000;
+  margin: 30px 14px;
+  padding: 3px 8px;
+  font-size: 2em;
   color: #fff;
-  text-transform: uppercase;
-  box-shadow: 0 0 1px #000
+  border: 3px solid #fff;
+  border-radius: 100%;
 }
 
-.view a.info:hover {
-  box-shadow: 0 0 5px #000
+.view a.visited {
+  // border: 3px solid #fff;
+  // border-radius: 100%;
+}
+
+.view a.delete:hover {
+  color: red;
+}
+
+.view a.visited-true {
+  color: white;
+}
+
+.view a.visited-false {
+  color: red;
+}
+
+.view a.visited:hover {
+  font-color: white;
+}
+
+.view a.delete:hover {
+  color: red;
 }
 
 .view-first img {
@@ -115,5 +127,5 @@
 }
 
 .view-first:hover a.info {
-  transition-delay: 0.2s;
+  // transition-delay: 0.2s;
 }
