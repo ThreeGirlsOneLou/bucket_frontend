@@ -3,6 +3,7 @@
 const app = require('../app-data.js');
 const flickr = require('./flickr.js');
 let map;
+let markers = [];
 
 // function to add the search and autocomplete to map
 const addSearchBar = function(map) {
@@ -103,12 +104,38 @@ const addPoints = function() {
         })(marker, i));
 
         bounds.extend(marker.getPosition());
+        markers.push(marker);
+
     }
 
     map.fitBounds(bounds);
 }
 
+// Sets the map on all markers in the array.
+function setMapOnAll(map) {
+  for (var i = 0; i < markers.length; i++) {
+    markers[i].setMap(map);
+  }
+}
+
+// Removes the markers from the map, but keeps them in the array.
+function clearMarkers() {
+  setMapOnAll(null);
+}
+
+// Shows any markers currently in the array.
+function showMarkers() {
+  setMapOnAll(map);
+}
+
+// Deletes all markers in the array by removing references to them.
+const clearMap = function() {
+  clearMarkers();
+  markers = [];
+}
+
 module.exports = {
   loadMap,
-  addPoints
+  addPoints,
+  clearMap
 };

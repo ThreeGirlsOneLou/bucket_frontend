@@ -14,6 +14,7 @@ const signOutSuccess = (data) => {
   $('#sign-in-button').show();
   $('#sign-up-button').show();
   $('#username').text("Username");
+  loadMap.clearMap();
 };
 
 const signInSuccess = (data) => {
@@ -25,6 +26,7 @@ const signInSuccess = (data) => {
   $('#sign-in-button').hide();
   $('#sign-up-button').hide();
   $('#username').text(app.user.email);
+  loadMap.clearMap();
   loadMap.addPoints();
 };
 
