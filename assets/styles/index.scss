@@ -5,6 +5,7 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import 'map';
 @import 'cover';
 @import 'flickr';
+@import 'handlebars';
 
 html,
 body {
@@ -28,15 +29,4 @@ body.container-fluid {
   overflow: hidden;
   margin: 0;
   padding: 0;
-}
-
-.flamingo {
-  width: 100%;
-  height: 100%;
-  background: none;
-  // content-fit: scale-down;
-}
-
-.flamingo:hover {
-  background-color: black;
 }

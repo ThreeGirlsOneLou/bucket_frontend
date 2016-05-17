@@ -1,11 +1,15 @@
 <div class="row bucket-row">
   {{#each locations}}
     <div class="col-md-3">
-      <div class="image-container"><img src={{this.url}}></div>
-        <button type="button" class="visited" data-location-id="{{this.id}}">Visited</button>
-        <button type="button" class="remove" data-location-id="{{this.id}}">Remove</button>
-      <div class="location-name" hidden>
-        {{this.name}}
+      <div class="view view-first">
+        <div class="image-container"><img src={{this.url}}></div>
+        <div class="mask">
+          <button type="button" class="visited" data-location-id="{{this.id}}">Visited</button>
+          <button type="button" class="remove" data-location-id="{{this.id}}">Remove</button>
+        <div class="location-name">
+          <h2>{{this.name}}</h2>
+        </div>
+        </div>
       </div>
     </div>
   {{/each}}
