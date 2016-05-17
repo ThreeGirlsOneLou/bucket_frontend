@@ -26,6 +26,16 @@ const addHandlers = () => {
                               app.user._id,
                               location_id);
     });
+
+    $('#location-list').on('click','.remove', function (event){
+      event.preventDefault();
+      let location_id = $(this).data('location-id');
+      console.log('delete triggered');
+      appApi.deleteUserLocation(appUi.deleteLocationSuccess,
+                                appUi.deleteLocationFailure,
+                                app.user._id,
+                                location_id);
+      });
 };
 
 

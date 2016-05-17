@@ -3,11 +3,15 @@
 const app = require('../app-data.js');
 const loadMap = require('../app/google_map_signin.js');
 const loadBucket = require('./handlebars.js');
+const appApi = require('./api.js');
 
 const getLocationsSuccess = (data) => {
   console.log('win');
-  console.log(data);
+  console.log(data, 'from get Location Success');
+  app.user.locations = data.locations;
   loadBucket.loadBucket();
+  loadMap.clearMap();
+  loadMap.addPoints();
 };
 
 const getLocationsFailure = (data) => {
@@ -50,10 +54,27 @@ const getPhotosSuccess = (data) => {
 const updateLocationSuccess = (data) => {
   console.log('Update location Success');
   console.log(data);
+  app.user.locations = data.user.locations;
+  loadBucket.loadBucket();
+  loadMap.clearMap();
+  loadMap.addPoints();
 };
 
 const updateLocationFailure = (data) => {
   console.log('Update location Failure');
+  console.log(data);
+};
+
+const deleteLocationSuccess = (data) => {
+  console.log('Delete location success');
+  console.log(data, 'from delete');
+  appApi.getUserLocations(getLocationsSuccess,
+                          getLocationsFailure,
+                          app.user._id);
+};
+
+const deleteLocationFailure = (data) => {
+  console.log('Delete location Failure');
   console.log(data);
 };
 
@@ -65,5 +86,7 @@ module.exports = {
   getPhotosFailure,
   getPhotosSuccess,
   updateLocationFailure,
-  updateLocationSuccess
+  updateLocationSuccess,
+  deleteLocationSuccess,
+  deleteLocationFailure
 };
