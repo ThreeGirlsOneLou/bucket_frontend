@@ -31,6 +31,7 @@ const signInSuccess = (data) => {
   $('html, body').animate({
     scrollTop: $("#map").offset().top
   }, 1000);
+  $('#landing-page').hide();
   loadMap.clearMap();
   loadMap.addPoints();
   loadBucket.loadBucket();
