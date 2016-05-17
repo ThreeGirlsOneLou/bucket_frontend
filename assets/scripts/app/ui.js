@@ -47,13 +47,23 @@ const getPhotosSuccess = (data) => {
 
 };
 
+const updateLocationSuccess = (data) => {
+  console.log('Update location Success');
+  console.log(data);
+};
+
+const updateLocationFailure = (data) => {
+  console.log('Update location Failure');
+  console.log(data);
+};
+
 module.exports = {
   getLocationsSuccess,
   getLocationsFailure,
   addLocationSuccess,
   addLocationFailure,
   getPhotosFailure,
-  getPhotosSuccess
-
-
+  getPhotosSuccess,
+  updateLocationFailure,
+  updateLocationSuccess
 };
