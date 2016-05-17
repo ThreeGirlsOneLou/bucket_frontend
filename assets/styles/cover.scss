@@ -5,6 +5,7 @@ header {
     color: #fff;
     width: 100%;
     background-color: black;
+    font-family: 'Dancing Script';
 }
 
 header .header-content {
@@ -41,6 +42,19 @@ header .header-content {
     }
 
     header .header-content .inner h1 {
-        font-size: 53px;
+        font-size: 100px;
     }
+}
+
+.navbar a,
+.navbar span.navbar-brand {
+  color: #000;
+}
+
+.navbar a:hover {
+  color: #000;
+}
+
+.navbar.transparent.navbar-inverse .navbar-inner {
+  background: rgba(0,0,0,0.4);
 }
