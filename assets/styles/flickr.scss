@@ -1,16 +1,15 @@
+
 #flickrResult {
-  margin: 10px;
+  height: 100%;
+  overflow: hidden;
+  width: 100%;
 }
 
-.col-md-6 {
-  height: 100%;
+.flickr_row .col-md-6 {
+  padding: 0px;
 }
 
 #photoResult {
-  width: 95%;
-  height: 90%;
-  margin-top: 20px;
-  margin-right: 10px;
-  margin-left: 0px;
-  border: 2px solid black;
+  height: 375px;
+  width: 100%;
 }
