@@ -4,10 +4,10 @@
       <div class="view view-first">
         <div class="image-container"><img src={{this.url}}></div>
         <div class="mask">
-          <button type="button" class="visited" data-location-id="{{this._id}}">Visited</button>
-          <button type="button" class="remove" data-location-id="{{this._id}}">Remove</button>
         <div class="location-name">
           <h2>{{this.name}}</h2>
+          <a href="#" class="visited" data-location-id="{{this._id}}"><span class="glyphicon glyphicon-flag"></span></a>
+          <a href="#" class="remove" data-location-id="{{this._id}}"><span class="glyphicon glyphicon-remove"></span></a>
         </div>
         </div>
       </div>
