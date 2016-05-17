@@ -3,6 +3,7 @@
 const app = require('../app-data.js');
 const loadMap = require('../app/google_map_signin.js');
 const loadBucket = require('../app/handlebars.js');
+const authApi = require('./api.js');
 // const appApi = require('../app/api.js');
 // const appUi = require('../app/ui.js');
 
@@ -48,6 +49,10 @@ const registerSuccess = (data) => {
   console.log("Registration successful");
   app.user = data.user;
   console.log(data.user);
+  console.log(app.signUpData);
+  authApi.signIn(signInSuccess,signInFail,app.signUpData);
+  $('#sign-up-modal').modal('hide');
+
   // call sign in function here
 };
 
