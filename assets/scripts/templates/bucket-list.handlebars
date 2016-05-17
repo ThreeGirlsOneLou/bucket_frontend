@@ -1,5 +1,8 @@
-{{#each location}}
-  <div class"col-md-3">
-    <img src={{this.url}}>
-  </div>
-{{/each}}
+<div class="row">
+  {{#each locations}}
+    <div class="col-md-3">
+      <img src={{this.url}}>
+      {{this.name}}
+    </div>
+  {{/each}}
+</div>
