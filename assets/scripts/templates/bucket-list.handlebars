@@ -4,10 +4,16 @@
       <div class="view view-first">
         <div class="image-container"><img src={{this.url}}></div>
         <div class="mask">
-          <button type="button" class="visited" data-location-id="{{this._id}}">Visited</button>
-          <button type="button" class="remove" data-location-id="{{this._id}}">Remove</button>
         <div class="location-name">
           <h2>{{this.name}}</h2>
+          <div class="icons">
+            {{#if this.visited}}
+            <a href="#" class="visited visited-true" data-location-id="{{this._id}}" data-toggle="tooltip" data-placement="bottom" title="Oops, haven't been here yet!"><span class="glyphicon glyphicon-flag"></span></a>
+            {{else}}
+            <a href="#" class="visited visited-false" data-location-id="{{this._id}}" data-toggle="tooltip" data-placement="bottom" title="Mark as visited!"><span class="glyphicon glyphicon-flag"></span></a>
+            {{/if}}
+            <a href="#" class="remove info delete" data-location-id="{{this._id}}" data-toggle="tooltip" data-placement="bottom" title="Remove from Wanderlist"><span class="glyphicon glyphicon-remove"></span></a>
+        </div>
         </div>
         </div>
       </div>

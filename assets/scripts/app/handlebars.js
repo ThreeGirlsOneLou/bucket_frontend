@@ -11,6 +11,7 @@ const loadBucket = () => {
   $('#location-list').append(handlebarsTemplate({
     locations: locations
   }));
+  $('[data-toggle="tooltip"]').tooltip()
 };
 
 module.exports = {
