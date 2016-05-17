@@ -63,7 +63,7 @@ const deleteUserLocation = (success, failure, user_id, location_id) => {
     .fail(failure);
 };
 
-const updateUserLocation = (success, failure, user_id, location_id) => {
+const updateUserLocation = (success, failure, user_id, location_id, change) => {
   console.log(user_id);
   $.ajax({
     method: 'PATCH',
@@ -74,7 +74,7 @@ const updateUserLocation = (success, failure, user_id, location_id) => {
       },
       location: {
         field: "visited",
-        change: true,
+        change: change,
         id: location_id
       }
     },
