@@ -4,6 +4,7 @@ const app = require('../app-data.js');
 const flickr = require('./flickr.js');
 let map;
 
+// function to add the search and autocomplete to map
 const addSearchBar = function(map) {
   var input = /** @type {HTMLInputElement} */(
       document.getElementById('pac-input'));
@@ -52,6 +53,7 @@ const addSearchBar = function(map) {
         place.formatted_address + '</div>');
     infowindow.open(map, marker);
 
+    // save current search data
     app.searchname = place.name;
     app.searchaddress = place.formatted_address;
     app.searchlat = place.geometry.location.lat();
@@ -59,65 +61,54 @@ const addSearchBar = function(map) {
 
     $('#search-result-name').text(place.formatted_address);
 
+    // call flikr API
     flickr.getPhotos(ui.getPhotosSuccess, ui.getPhotosFailure, $('#search-result-name').text() );
   });
-}
+};
 
-const mapAddPoints = function() {
+const loadMap = function() {
 
-  let locations = app.user.locations;
-  console.log(locations);
+  $(window).load(function(){
+    map = new google.maps.Map(document.getElementById('map'), {
+      center: {lat: 42.364506, lng: -71.038887},
+      zoom: 13,
+      scrollwheel: false
+    });
 
-  map = new google.maps.Map(document.getElementById('map'), {
-    center: {lat: -33.8688, lng: 151.2195},
-    zoom: 13,
-    scrollwheel: false
+    addSearchBar(map);
   });
 
-  var infowindow = new google.maps.InfoWindow;
-
-  var marker, i;
-
-  var bounds = new google.maps.LatLngBounds();
-
-  addSearchBar(map);
-
-  for (i = 0; i < locations.length; i++) {
-      marker = new google.maps.Marker({
-           position: new google.maps.LatLng(locations[i].coords.lat, locations[i].coords.long),
-           map: map
-      });
-
-      google.maps.event.addListener(marker, 'click', (function(marker, i) {
-           return function() {
-               infowindow.setContent('<div><strong>' + locations[i].name + '</strong></div>');
-               infowindow.open(map, marker);
-           };
-      })(marker, i));
-
-      bounds.extend(marker.getPosition());
-  }
-
-  map.fitBounds(bounds);
-
 };
 
-const newPoint = function() {
-  var marker_new = new google.maps.Marker({
-          position: new google.maps.LatLng(app.searchlat, app.searchlong),
-          title: 'new marker',
-          map: map
-      });
-  var infowindow_new = new google.maps.InfoWindow;
-  google.maps.event.addListener(marker_new, 'click', (function(marker_new) {
-       return function() {
-           infowindow_new.setContent('<div><strong>' + app.searchname + '</strong></div>');
-           infowindow_new.open(map, marker_new);
-       };
-  })(marker_new));
-};
+const addPoints = function() {
+
+    let locations = app.user.locations;
+    console.log(locations);
+
+    var infowindow = new google.maps.InfoWindow;
+    var marker, i;
+    var bounds = new google.maps.LatLngBounds();
+
+    for (i = 0; i < locations.length; i++) {
+        marker = new google.maps.Marker({
+             position: new google.maps.LatLng(locations[i].coords.lat, locations[i].coords.long),
+             map: map
+        });
+
+        google.maps.event.addListener(marker, 'click', (function(marker, i) {
+             return function() {
+                 infowindow.setContent('<div><strong>' + locations[i].name + '</strong></div>');
+                 infowindow.open(map, marker);
+             };
+        })(marker, i));
+
+        bounds.extend(marker.getPosition());
+    }
+
+    map.fitBounds(bounds);
+}
 
 module.exports = {
-  mapAddPoints,
-  newPoint
+  loadMap,
+  addPoints
 };

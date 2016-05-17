@@ -25,7 +25,7 @@ const signInSuccess = (data) => {
   $('#sign-in-button').hide();
   $('#sign-up-button').hide();
   $('#username').text(app.user.email);
-  loadMap.mapAddPoints();
+  loadMap.addPoints();
 };
 
 const changePWSuccess = (data) => {
