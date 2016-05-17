@@ -16,12 +16,14 @@ const signOutSuccess = (data) => {
   $('#sign-in-button').show();
   $('#sign-up-button').show();
   $('#username').text("Username");
-  // $('.bucket-list').children().removeData();
+  $('#photoResult').html('');
+  $('#locationText').html('');
   $('html, body').css('overflow-y', 'hidden');
   loadMap.clearMap();
   $('#sign-in').each(function(){
      this.reset();
    });
+  $('#pac-input').val('');
 };
 
 
