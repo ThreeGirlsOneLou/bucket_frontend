@@ -97,45 +97,47 @@ const addPoints = function() {
     let locations = app.user.locations;
     console.log(locations);
 
-    var infowindow = new google.maps.InfoWindow;
-    var marker, i;
-    var bounds = new google.maps.LatLngBounds();
-    let image = {
-      path: "M0-48c-9.8 0-17.7 7.8-17.7 17.4 0 15.5 17.7 30.6 17.7 30.6s17.7-15.4 17.7-30.6c0-9.6-7.9-17.4-17.7-17.4z",
-      fillColor: '#FF0000',
-      fillOpacity: .6,
-      anchor: new google.maps.Point(0,0),
-      strokeWeight: 0,
-      scale: 0.5
+    if (locations.length > 0) {
+      var infowindow = new google.maps.InfoWindow;
+      var marker, i;
+      var bounds = new google.maps.LatLngBounds();
+      let image = {
+        path: "M0-48c-9.8 0-17.7 7.8-17.7 17.4 0 15.5 17.7 30.6 17.7 30.6s17.7-15.4 17.7-30.6c0-9.6-7.9-17.4-17.7-17.4z",
+        fillColor: '#FF0000',
+        fillOpacity: .6,
+        anchor: new google.maps.Point(0,0),
+        strokeWeight: 0,
+        scale: 0.5
+      }
+
+      for (i = 0; i < locations.length; i++) {
+
+        if (locations[i].visited === true) { image.fillColor = '#329f72';}
+
+          marker = new google.maps.Marker({
+               position: new google.maps.LatLng(locations[i].coords.lat, locations[i].coords.long),
+               map: map,
+               icon: image
+          });
+
+          google.maps.event.addListener(marker, 'click', (function(marker, i) {
+               return function() {
+                   infowindow.setContent('<div><strong>' + locations[i].name + '</strong></div>');
+                   infowindow.open(map, marker);
+               };
+          })(marker, i));
+
+          bounds.extend(marker.getPosition());
+          markers.push(marker);
+
+          if (mapReload > 0 && i === locations.length - 1) {
+            marker.setAnimation(4);
+          }
+
+      }
+
+      map.fitBounds(bounds);
     }
-
-    for (i = 0; i < locations.length; i++) {
-
-      if (locations[i].visited === true) { image.fillColor = '#329f72';}
-
-        marker = new google.maps.Marker({
-             position: new google.maps.LatLng(locations[i].coords.lat, locations[i].coords.long),
-             map: map,
-             icon: image
-        });
-
-        google.maps.event.addListener(marker, 'click', (function(marker, i) {
-             return function() {
-                 infowindow.setContent('<div><strong>' + locations[i].name + '</strong></div>');
-                 infowindow.open(map, marker);
-             };
-        })(marker, i));
-
-        bounds.extend(marker.getPosition());
-        markers.push(marker);
-
-        if (mapReload > 0 && i === locations.length - 1) {
-          marker.setAnimation(4);
-        }
-
-    }
-
-    map.fitBounds(bounds);
 
     mapReload += 1;
 };
