@@ -1,13 +1,14 @@
 'use strict';
 
 // const getFormFields = require('../../../lib/get-form-fields');
-
+const app = require('../app-data.js');
 const authApi = require('./api.js');
 const authUi = require('./ui.js');
 
 const addHandlers = () => {
   $('#sign-up').on('submit', function (event) {
     let data = getFormFields(this);
+    app.signUpData = getFormFields(this);
     event.preventDefault();
     authApi.signUp(authUi.registerSuccess, authUi.regFail, data);
   });
