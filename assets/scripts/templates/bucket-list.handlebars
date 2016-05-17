@@ -2,7 +2,11 @@
   {{#each locations}}
     <div class="col-md-3">
       <img src={{this.url}}>
-      {{this.name}}
+        <button type="button" class="visited" data-location-id="{{this.id}}">Visited</button>
+        <button type="button" class="remove" data-location-id="{{this.id}}">Remove</button>
+      <div class="location-name" hidden>
+        {{this.name}}
+      </div>
     </div>
   {{/each}}
 </div>
