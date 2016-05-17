@@ -6,10 +6,20 @@
 }
 
 .flickr_row .col-md-6 {
-  padding: 0px;
+  padding: 0;
+  height: 100vh;
 }
 
 #photoResult {
-  height: 375px;
-  width: 100%;
+  height: 70%;
+  width: 50vw;
+}
+
+#search-result-name {
+  padding-left: 20px;
+  font-size: 34px;
+}
+
+#add-button {
+  padding-left: 20px
 }
