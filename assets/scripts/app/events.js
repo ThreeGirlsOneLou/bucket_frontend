@@ -12,8 +12,20 @@ const addHandlers = () => {
     let user_id = app.user._id;
     let long = app.searchlong;
     let lat = app.searchlat;
-    appApi.addUserLocation(appUi.addLocationSuccess, appUi.addLocationFailure, user_id, name, long, lat, app.flickrURL);
+    appApi.addUserLocation(appUi.addLocationSuccess,
+                           appUi.addLocationFailure,
+                           user_id, name, long, lat,
+                           app.flickrURL);
   });
+
+  $('#location-list').on('click','.visited', function (event){
+    event.preventDefault();
+    let location_id = $(this).data('location-id');
+    appApi.updateUserLocation(appUi.updateLocationSuccess,
+                              appUi.updateLocationFailure,
+                              app.user._id,
+                              location_id);
+    });
 };
 
 

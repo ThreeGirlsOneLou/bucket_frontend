@@ -63,7 +63,29 @@ const deleteUserLocation = (success, failure, user_id, location_id) => {
     .fail(failure);
 };
 
-const updateUserLocation = () => {
+const updateUserLocation = (success, failure, user_id, location_id) => {
+  console.log(user_id);
+  $.ajax({
+    method: 'PATCH',
+    url: app.api + '/locations/' + location_id,
+    data: {
+      user: {
+        id: user_id
+      },
+      location: {
+        field: "visited",
+        change: true,
+        id: location_id
+      }
+    },
+    headers: {
+      "Content-Type": "application/json",
+    },
+    headers: {
+    Authorization: 'Token token=' + app.user.token,
+  },
+}).done(success)
+  .fail(failure)
 
 };
 
