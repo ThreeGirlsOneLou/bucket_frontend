@@ -1,5 +1,16 @@
+.modal-backdrop {
+   background-image: url(https://i.ytimg.com/vi/4AA4qYGunr4/maxresdefault.jpg);
+}
 
+.modal-content {
+  background-color: $modal-content;
+}
 
-.modelDesign {
-  background-image: url(https://i.ytimg.com/vi/4AA4qYGunr4/maxresdefault.jpg);
+.modal-header {
+  color: $modal-header;
+}
+
+.register-opp {
+  display: block;
+  text-align: center;
 }
