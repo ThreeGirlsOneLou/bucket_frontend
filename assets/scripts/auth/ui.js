@@ -2,6 +2,7 @@
 
 const app = require('../app-data.js');
 const loadMap = require('../app/google_map_signin.js');
+const loadBucket = require('../app/handlebars.js');
 // const appApi = require('../app/api.js');
 // const appUi = require('../app/ui.js');
 
@@ -19,6 +20,7 @@ const signOutSuccess = (data) => {
 
 const signInSuccess = (data) => {
   app.user = data.user;
+  loadBucket.loadBucket();
   console.log(app.user);
   console.log(data.user.email + " successfully signed in");
   $('#sign-in-modal').modal('hide');
