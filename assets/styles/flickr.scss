@@ -1,16 +1,13 @@
-#flickrResult {
-  margin: 10px;
-}
-
-.col-md-6 {
-  height: 100%;
-}
-
 #photoResult {
-  width: 95%;
-  height: 90%;
-  margin-top: 20px;
-  margin-right: 10px;
-  margin-left: 0px;
-  border: 2px solid black;
+  height: 375px;
+  width: 100%;
+  border: 4px solid red;
+  padding-left: 0px;
+
+}
+
+#flickrResult {
+  height: 100%;
+  width: 100%;
+  border: 3px solid green;
 }
