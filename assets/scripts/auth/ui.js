@@ -20,7 +20,6 @@ const signOutSuccess = (data) => {
 
 const signInSuccess = (data) => {
   app.user = data.user;
-  loadBucket.loadBucket();
   console.log(app.user);
   console.log(data.user.email + " successfully signed in");
   $('#sign-in-modal').modal('hide');
@@ -30,6 +29,7 @@ const signInSuccess = (data) => {
   $('#username').text(app.user.email);
   loadMap.clearMap();
   loadMap.addPoints();
+  loadBucket.loadBucket();
 };
 
 const changePWSuccess = (data) => {

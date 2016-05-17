@@ -20,6 +20,7 @@ const addLocationSuccess = (data) => {
   console.log('Success');
   console.log(data);
   app.user.locations = data.user.locations;
+  loadBucket.loadBucket();
   loadMap.clearMap();
   loadMap.addPoints();
 };
