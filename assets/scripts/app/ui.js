@@ -2,10 +2,12 @@
 
 const app = require('../app-data.js');
 const loadMap = require('../app/google_map_signin.js');
+const loadBucket = require('./handlebars.js');
 
 const getLocationsSuccess = (data) => {
   console.log('win');
   console.log(data);
+  loadBucket.loadBucket();
 };
 
 const getLocationsFailure = (data) => {
@@ -38,9 +40,9 @@ const getPhotosSuccess = (data) => {
   console.log('Photo Success');
   console.log(data);
   app.photos = data.photos.photo[0];
-  let flickrURL = 'http://farm' + app.photos.farm + '.static.flickr.com/' + app.photos.server + '/' + app.photos.id + '_' + app.photos.secret + '.jpg';
-  console.log(flickrURL);
-  $('#photoResult').html('<img src="' + flickrURL + '">');
+  app.flickrURL = 'http://farm' + app.photos.farm + '.static.flickr.com/' + app.photos.server + '/' + app.photos.id + '_' + app.photos.secret + '.jpg';
+  console.log(app.flickrURL);
+  $('#photoResult').html('<img src="' + app.flickrURL + '">');
 
 };
 
