@@ -16,8 +16,15 @@ const signOutSuccess = (data) => {
   $('#sign-in-button').show();
   $('#sign-up-button').show();
   $('#username').text("Username");
+  // $('.bucket-list').children().removeData();
+  $('html, body').css('overflow-y', 'hidden');
   loadMap.clearMap();
+  $('#sign-in').each(function(){
+     this.reset();
+   });
 };
+
+
 
 const signInSuccess = (data) => {
   app.user = data.user;
