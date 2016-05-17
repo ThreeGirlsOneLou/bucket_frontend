@@ -28,9 +28,11 @@ const signInSuccess = (data) => {
   $('#sign-in-button').hide();
   $('#sign-up-button').hide();
   $('#username').text(app.user.email);
+  // $('#landing-page').css("display", "none");
   $('html, body').animate({
-    scrollTop: $("#map").offset().top
+    scrollTop: $('.flickr_row').offset().top
   }, 1000);
+  // $('#map').scrollTop(1000);
   loadMap.clearMap();
   loadMap.addPoints();
   loadBucket.loadBucket();
