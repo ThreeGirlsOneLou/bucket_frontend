@@ -4,6 +4,7 @@ const app = require('../app-data.js');
 const flickr = require('./flickr.js');
 let map;
 let markers = [];
+let mapReload = 0;
 
 // function to add the search and autocomplete to map
 const addSearchBar = function(map) {
@@ -19,9 +20,19 @@ const addSearchBar = function(map) {
 
   map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
 
+  let image = {
+    path: "M0-48c-9.8 0-17.7 7.8-17.7 17.4 0 15.5 17.7 30.6 17.7 30.6s17.7-15.4 17.7-30.6c0-9.6-7.9-17.4-17.7-17.4z",
+    fillColor: '#2fa1c4',
+    fillOpacity: .8,
+    anchor: new google.maps.Point(0,0),
+    strokeWeight: 0,
+    scale: 0.5
+  }
+
   var infowindow = new google.maps.InfoWindow();
   var marker = new google.maps.Marker({
-    map: map
+    map: map,
+    icon: image
   });
   google.maps.event.addListener(marker, 'click', function() {
     infowindow.open(map, marker);
@@ -89,11 +100,23 @@ const addPoints = function() {
     var infowindow = new google.maps.InfoWindow;
     var marker, i;
     var bounds = new google.maps.LatLngBounds();
+    let image = {
+      path: "M0-48c-9.8 0-17.7 7.8-17.7 17.4 0 15.5 17.7 30.6 17.7 30.6s17.7-15.4 17.7-30.6c0-9.6-7.9-17.4-17.7-17.4z",
+      fillColor: '#FF0000',
+      fillOpacity: .6,
+      anchor: new google.maps.Point(0,0),
+      strokeWeight: 0,
+      scale: 0.5
+    }
 
     for (i = 0; i < locations.length; i++) {
+
+      if (locations[i].visited === true) { image.fillColor = '#329f72';}
+
         marker = new google.maps.Marker({
              position: new google.maps.LatLng(locations[i].coords.lat, locations[i].coords.long),
-             map: map
+             map: map,
+             icon: image
         });
 
         google.maps.event.addListener(marker, 'click', (function(marker, i) {
@@ -106,10 +129,16 @@ const addPoints = function() {
         bounds.extend(marker.getPosition());
         markers.push(marker);
 
+        if (mapReload > 0 && i === locations.length - 1) {
+          marker.setAnimation(4);
+        }
+
     }
 
     map.fitBounds(bounds);
-}
+
+    mapReload += 1;
+};
 
 // Sets the map on all markers in the array.
 function setMapOnAll(map) {

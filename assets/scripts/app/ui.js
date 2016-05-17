@@ -18,6 +18,7 @@ const addLocationSuccess = (data) => {
   console.log('Success');
   console.log(data);
   app.user.locations = data.user.locations;
+  loadMap.clearMap();
   loadMap.addPoints();
 };
 
