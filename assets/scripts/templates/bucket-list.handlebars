@@ -6,12 +6,14 @@
         <div class="mask">
         <div class="location-name">
           <h2>{{this.name}}</h2>
-          {{#if this.visited}}
-          <a href="#" class="visited visited-true" data-location-id="{{this._id}}" data-toggle="tooltip" data-placement="left" title="JK, haven't been here yet"><span class="glyphicon glyphicon-flag"></span></a>
-          {{else}}
-          <a href="#" class="visited visited-false" data-location-id="{{this._id}}"><span class="glyphicon glyphicon-flag"></span></a>
-          {{/if}}
-          <a href="#" class="remove info delete" data-location-id="{{this._id}}"><span class="glyphicon glyphicon-remove"></span></a>
+          <div class="icons">
+            {{#if this.visited}}
+            <a href="#" class="visited visited-true" data-location-id="{{this._id}}" data-toggle="tooltip" data-placement="bottom" title="Oops, haven't been here yet!"><span class="glyphicon glyphicon-flag"></span></a>
+            {{else}}
+            <a href="#" class="visited visited-false" data-location-id="{{this._id}}" data-toggle="tooltip" data-placement="bottom" title="Mark as visited!"><span class="glyphicon glyphicon-flag"></span></a>
+            {{/if}}
+            <a href="#" class="remove info delete" data-location-id="{{this._id}}" data-toggle="tooltip" data-placement="bottom" title="Remove from Wanderlist"><span class="glyphicon glyphicon-remove"></span></a>
+        </div>
         </div>
         </div>
       </div>

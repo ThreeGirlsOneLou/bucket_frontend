@@ -47,37 +47,34 @@
 .view a {
   display: inline-block;
   text-decoration: none;
-  margin: 30px 14px;
+  margin: 0px 14px;
   padding: 3px 8px;
   font-size: 2em;
   color: #fff;
+  background-color: rgba(0,0,0,0.3);
   border: 3px solid #fff;
   border-radius: 100%;
 }
 
-.view a.visited {
-  // border: 3px solid #fff;
-  // border-radius: 100%;
+.view div.icons {
+  position: absolute;
+  top: 100px;
+  left: 45px;
 }
 
 .view a.delete:hover {
-  color: red;
+  color: rgb(191, 29, 77);
+  border-color: rgb(191, 29, 77);
 }
 
 .view a.visited-true {
-  color: white;
+  color: rgb(47, 213, 108);
+  border-color: rgb(47, 213, 108)
 }
 
 .view a.visited-false {
-  color: red;
-}
-
-.view a.visited:hover {
-  font-color: white;
-}
-
-.view a.delete:hover {
-  color: red;
+  color: rgb(191, 29, 77);
+  border-color: rgb(191, 29, 77);
 }
 
 .view-first img {
