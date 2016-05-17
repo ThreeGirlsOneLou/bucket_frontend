@@ -6,6 +6,8 @@ let map;
 let markers = [];
 let mapReload = 0;
 
+let mapStyle = [{"featureType":"all","elementType":"labels.text","stylers":[{"color":"#ffffff"}]},{"featureType":"all","elementType":"labels.text.fill","stylers":[{"color":"#231f20"}]},{"featureType":"all","elementType":"labels.icon","stylers":[{"weight":"2.19"},{"saturation":"11"}]},{"featureType":"administrative","elementType":"labels.text.fill","stylers":[{"color":"#444444"}]},{"featureType":"landscape","elementType":"all","stylers":[{"color":"#f2f2f2"}]},{"featureType":"poi","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"road","elementType":"all","stylers":[{"saturation":-100},{"lightness":45}]},{"featureType":"road.highway","elementType":"all","stylers":[{"visibility":"simplified"}]},{"featureType":"road.arterial","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"transit","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"water","elementType":"all","stylers":[{"color":"#9cd8d2"},{"visibility":"on"}]}]
+
 // function to add the search and autocomplete to map
 const addSearchBar = function(map) {
   var input = /** @type {HTMLInputElement} */(
@@ -22,7 +24,7 @@ const addSearchBar = function(map) {
 
   let image = {
     path: "M0-48c-9.8 0-17.7 7.8-17.7 17.4 0 15.5 17.7 30.6 17.7 30.6s17.7-15.4 17.7-30.6c0-9.6-7.9-17.4-17.7-17.4z",
-    fillColor: '#2fa1c4',
+    fillColor: '#832fc4',
     fillOpacity: .8,
     anchor: new google.maps.Point(0,0),
     strokeWeight: 0,
@@ -61,8 +63,7 @@ const addSearchBar = function(map) {
     }));
     marker.setVisible(true);
 
-    infowindow.setContent('<div><strong>' + place.name + '</strong><br>' +
-        place.formatted_address + '</div>');
+    infowindow.setContent('<div><strong>' + place.formatted_address + '</strong><br>');
     infowindow.open(map, marker);
 
     // save current search data
@@ -84,7 +85,8 @@ const loadMap = function() {
     map = new google.maps.Map(document.getElementById('map'), {
       center: {lat: 42.364506, lng: -71.038887},
       zoom: 13,
-      scrollwheel: false
+      scrollwheel: false,
+      styles: mapStyle
     });
 
     addSearchBar(map);
@@ -103,16 +105,19 @@ const addPoints = function() {
       var bounds = new google.maps.LatLngBounds();
       let image = {
         path: "M0-48c-9.8 0-17.7 7.8-17.7 17.4 0 15.5 17.7 30.6 17.7 30.6s17.7-15.4 17.7-30.6c0-9.6-7.9-17.4-17.7-17.4z",
-        fillColor: '#FF0000',
         fillOpacity: .6,
         anchor: new google.maps.Point(0,0),
         strokeWeight: 0,
         scale: 0.5
-      }
+      };
 
       for (i = 0; i < locations.length; i++) {
 
-        if (locations[i].visited === true) { image.fillColor = '#329f72';}
+        if (locations[i].visited === true) {
+          image.fillColor = '#0952cf';
+        } else {
+          image.fillColor = '#FF0000';
+        }
 
           marker = new google.maps.Marker({
                position: new google.maps.LatLng(locations[i].coords.lat, locations[i].coords.long),
