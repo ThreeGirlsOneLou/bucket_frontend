@@ -5,6 +5,7 @@ const flickr = require('./flickr.js');
 let map;
 let markers = [];
 let mapReload = 0;
+let locations;
 
 let mapStyle = [{"featureType":"all","elementType":"labels.text","stylers":[{"color":"#ffffff"}]},{"featureType":"all","elementType":"labels.text.fill","stylers":[{"color":"#231f20"}]},{"featureType":"all","elementType":"labels.icon","stylers":[{"weight":"2.19"},{"saturation":"11"}]},{"featureType":"administrative","elementType":"labels.text.fill","stylers":[{"color":"#444444"}]},{"featureType":"landscape","elementType":"all","stylers":[{"color":"#f2f2f2"}]},{"featureType":"poi","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"road","elementType":"all","stylers":[{"saturation":-100},{"lightness":45}]},{"featureType":"road.highway","elementType":"all","stylers":[{"visibility":"simplified"}]},{"featureType":"road.arterial","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"transit","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"water","elementType":"all","stylers":[{"color":"#9cd8d2"},{"visibility":"on"}]}]
 
@@ -74,6 +75,28 @@ const addSearchBar = function(map) {
 
     $('#search-result-name').text(place.formatted_address);
 
+    let inList = false;
+
+    for (let i = 0; i < locations.length; i++) {
+      if (locations[i].name === place.formatted_address) {
+        inList = true;
+        console.log ('place already in list');
+      }
+    }
+
+    if (inList === true) {
+      $('#add-button').hide();
+      $('#remove-button').show();
+      setTimeout(function() {
+        $('#photo-ribbon').fadeIn("slow");
+      }, 500);
+      // })$('#photo-ribbon').setTimeout($(this).fadeIn("slow"), 1000);
+    } else {
+      $('#remove-button').hide();
+      $('#add-button').show();
+      $('#photo-ribbon').fadeOut("slow");
+    }
+
     // call flikr API
     flickr.getPhotos(ui.getPhotosSuccess, ui.getPhotosFailure, $('#search-result-name').text() );
   });
@@ -96,7 +119,7 @@ const loadMap = function() {
 
 const addPoints = function() {
 
-    let locations = app.user.locations;
+    locations = app.user.locations;
     console.log(locations);
 
     if (locations.length > 0) {

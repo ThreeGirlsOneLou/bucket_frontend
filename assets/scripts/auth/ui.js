@@ -24,6 +24,7 @@ const signOutSuccess = (data) => {
      this.reset();
    });
   $('#pac-input').val('');
+  $('#photo-ribbon').fadeOut("slow");
 };
 
 
