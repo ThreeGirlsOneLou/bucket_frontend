@@ -84,6 +84,10 @@ const success = (data) => {
 
 const signInFail = (error) => {
   console.error(error);
+  $('#sign-in').append('<div class="alert alert-danger" role="alert">Invalid e-mail or password</div>');
+  setTimeout(function(){
+    $('#sign-in-modal > .alert').hide();
+  }, 2000);
   // show div that says 'Invalid e-mail or password'
 };
 
