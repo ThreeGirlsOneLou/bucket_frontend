@@ -14,9 +14,11 @@
 
 #info-button {
   position: relative;
-  right: 20px;
-  top: -38px;
-  color: rgb(99, 101, 98);
+  display: block;
+  right: -230px;
+  top: 50px;
+  color: #000;
+  font-size: 1.8em;
 }
 
 #info-button:hover {
