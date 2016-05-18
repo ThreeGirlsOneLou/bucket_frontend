@@ -2,12 +2,13 @@
 
 const app = require('../app-data.js');
 const flickr = require('./flickr.js');
+const wiki = require('./wiki.js');
 let map;
 let markers = [];
 let mapReload = 0;
 let locations;
 
-let mapStyle = [{"featureType":"all","elementType":"labels.text","stylers":[{"color":"#ffffff"}]},{"featureType":"all","elementType":"labels.text.fill","stylers":[{"color":"#231f20"}]},{"featureType":"all","elementType":"labels.icon","stylers":[{"weight":"2.19"},{"saturation":"11"}]},{"featureType":"administrative","elementType":"labels.text.fill","stylers":[{"color":"#444444"}]},{"featureType":"landscape","elementType":"all","stylers":[{"color":"#f2f2f2"}]},{"featureType":"poi","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"road","elementType":"all","stylers":[{"saturation":-100},{"lightness":45}]},{"featureType":"road.highway","elementType":"all","stylers":[{"visibility":"simplified"}]},{"featureType":"road.arterial","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"transit","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"water","elementType":"all","stylers":[{"color":"#9cd8d2"},{"visibility":"on"}]}]
+let mapStyle = [{"featureType":"all","elementType":"labels.text","stylers":[{"color":"#ffffff"}]},{"featureType":"all","elementType":"labels.text.fill","stylers":[{"color":"#231f20"}]},{"featureType":"all","elementType":"labels.icon","stylers":[{"weight":"2.19"},{"saturation":"11"}]},{"featureType":"administrative","elementType":"labels.text.fill","stylers":[{"color":"#444444"}]},{"featureType":"landscape","elementType":"all","stylers":[{"color":"#f2f2f2"}]},{"featureType":"poi","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"road","elementType":"all","stylers":[{"saturation":-100},{"lightness":45}]},{"featureType":"road.highway","elementType":"all","stylers":[{"visibility":"simplified"}]},{"featureType":"road.arterial","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"transit","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"water","elementType":"all","stylers":[{"color":"#9cd8d2"},{"visibility":"on"}]}];
 
 // function to add the search and autocomplete to map
 const addSearchBar = function(map) {
@@ -99,7 +100,11 @@ const addSearchBar = function(map) {
     }
 
     // call flikr API
-    flickr.getPhotos(ui.getPhotosSuccess, ui.getPhotosFailure, $('#search-result-name').text() );
+    flickr.getPhotos(ui.getPhotosSuccess, ui.getPhotosFailure, $('#search-result-name').text());
+    let searchAry = $('#search-result-name').text().split(',');
+    wiki.getWikiInfo(ui.getWikiInfoSuccess,
+                     ui.getWikiInfoFailure,
+                     searchAry[0]);
   });
 };
 
