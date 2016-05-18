@@ -12,12 +12,14 @@ const signOutSuccess = (data) => {
   app.user = data;
   console.log(app.user);
   $('#sign-out-modal').modal('hide');
-  $('#signed-in-menu').hide();
+  $('#signed-in-menu').css('visibility', 'hidden');
   $('#sign-in-button').show();
   $('#sign-up-button').show();
   $('#username').text("Username");
   $('#photoResult').html('');
-  $('#locationText').html('');
+  $('#search-result-name').text('');
+  $('#add-button').hide();
+  $('#remove-button').hide();
   $('html, body').css('overflow-y', 'hidden');
   loadMap.clearMap();
   $('#sign-in').each(function(){
