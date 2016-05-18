@@ -78,6 +78,21 @@ const deleteLocationFailure = (data) => {
   console.log(data);
 };
 
+const getWikiInfoFailure = (data) => {
+  console.log(data);
+};
+
+const getWikiInfoSuccess = (data) => {
+  console.log(data);
+  let id = {};
+  for (var first in data.query.pages){
+    id = first;
+    break;
+  }
+  $('#wiki-info-title').html(data.query.pages[id].title);
+  $('#wiki-content').html(data.query.pages[id].extract);
+};
+
 module.exports = {
   getLocationsSuccess,
   getLocationsFailure,
@@ -88,5 +103,7 @@ module.exports = {
   updateLocationFailure,
   updateLocationSuccess,
   deleteLocationSuccess,
-  deleteLocationFailure
+  deleteLocationFailure,
+  getWikiInfoSuccess,
+  getWikiInfoFailure
 };

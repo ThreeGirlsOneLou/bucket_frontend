@@ -90,6 +90,9 @@
       <h3 id="search-result-name"></h3>
       <a href="#" id="add-button" hidden><i class="fa fa-map-pin fa-2x"></i>Add to your WanderList</a>
       <a href="#" id="remove-button" hidden><i class="fa fa-map-pin fa-2x"></i>Remove from your WanderList</a>
+      <button type="button" class="btn btn-default" data-toggle="modal" data-target="#wiki-modal" aria-expanded="false">
+      <span class="glyphicon glyphicon-info-sign"></span>
+    </button>
     </div>
   </div>
 </div>
@@ -208,6 +211,21 @@
       </div>
     </div>
   </div>
+
+  <!-- Wiki info modal -->
+ <div class="modal fade" id="wiki-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+   <div class="modal-dialog" role="document">
+     <div class="modal-content">
+       <div class="modal-header">
+         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+         <h4 class="modal-title" id="wiki-info-title"></h4>
+       </div>
+       <div class="modal-body">
+         <p id="wiki-content"></p>
+       </div>
+     </div>
+   </div>
+ </div>
 
   <!-- for google map -->
       <script src="/assets/scripts/app/google_map.js"></script>
