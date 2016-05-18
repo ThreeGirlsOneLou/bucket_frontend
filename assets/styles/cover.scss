@@ -58,3 +58,24 @@ header .header-content {
 .navbar.transparent.navbar-inverse .navbar-inner {
   background: rgba(0,0,0,0.4);
 }
+
+.open-sign-up, .open-sign-in {
+  background-color: none;
+  border: 2px solid white;
+  border-radius: 25%;
+  color: white;
+  width: 110px;
+  text-align: center;
+  padding: 0 10px;
+  margin: 0 10px;
+}
+
+.open-sign-up a:hover, .open-sign-in a:hover {
+  background-color: white;
+  border-radius: 25%;
+  color: black;
+}
+
+.open-sign-up a, .open-sign-in a {
+  color: white;
+}
