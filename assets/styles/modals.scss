@@ -11,3 +11,19 @@
 .modal .btn {
   float: right;
 }
+
+#info-button {
+  position: relative;
+  right: 20px;
+  top: -38px;
+  color: rgb(99, 101, 98);
+}
+
+#info-button:hover {
+  color: rgb(134, 136, 135);
+}
+
+#wiki-content {
+  height: 500px;
+  overflow-y: scroll;
+}
