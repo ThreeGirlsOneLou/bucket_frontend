@@ -83,14 +83,17 @@
     <div id="map"></div>
     <!--END MAP-->
   </div>
-  <div class="col-md-6">
-    <div id='photoResult'></div>
-    <div id='photo-ribbon' class="ribbon" hidden><a>On your WanderList!</a></div>
-    <div id='locationText'>
-      <h3 id="search-result-name"></h3>
-      <a href="#" id="info-button" data-toggle="modal" data-target="#wiki-modal" aria-expanded="false" hidden><span class="glyphicon glyphicon-info-sign"></span></a>
-      <a href="#" id="add-button" hidden><i class="fa fa-map-pin fa-2x"></i>Add to your WanderList</a>
-      <a href="#" id="remove-button" hidden><i class="fa fa-map-pin fa-2x"></i>Remove from your WanderList</a>
+  <div class="col-md-6 infoContainer">
+    <div id='infoContainer'>
+      <img src="/assets/images/wanderlist-logo-wht.png">
+      <div id='photoResult'></div>
+      <div id='photo-ribbon' class="ribbon" hidden><a>On your WanderList!</a></div>
+      <div id='locationText'>
+        <h3 id="search-result-name"></h3>
+        <a href="#" id="info-button" data-toggle="modal" data-target="#wiki-modal" aria-expanded="false" hidden><span class="glyphicon glyphicon-info-sign"></span></a>
+        <a href="#" id="add-button" hidden><i class="fa fa-map-pin fa-2x"></i>Add to your WanderList</a>
+        <a href="#" id="remove-button" hidden><i class="fa fa-map-pin fa-2x"></i>Remove from your WanderList</a>
+      </div>
     </div>
   </div>
 </div>
@@ -115,7 +118,7 @@
   <!-- Sign In Modal -->
   <div class="modal fade inverse modalDesign" id="sign-in-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">
-      <div class="modal-content">
+      <div class="modal-content" id="signInModalContent">
         <div class="modal-header">
 
           <h4 class="modal-title">Sign in</h4>
@@ -143,7 +146,7 @@
   <!-- Register Modal -->
   <div class="modal fade" id="sign-up-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">
-      <div class="modal-content">
+      <div class="modal-content" id="registerModalContent">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
           <h4 class="modal-title" id="myModalLabel">Create new account</h4>
