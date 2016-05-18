@@ -41,10 +41,20 @@ body.container-fluid {
 #infoContainer {
   height: 90%;
   background-color: $tan;
+  overflow: hidden;
+}
+
+#infoContainer img {
+  width: 100%;
 }
 
 #location-list {
   padding: 20px 50px 0;
+}
+
+#slogan{
+  width: 100%;
+  text-align: center;
 }
 
 #locationContainer {
