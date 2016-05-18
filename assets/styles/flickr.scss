@@ -15,7 +15,8 @@
 }
 
 #search-result-name {
-  font-size: 20px;
+  font-size: 25px;
+  text-align: center;
 }
 
 #locationText {
@@ -25,9 +26,11 @@
 
 #add-button,
 #remove-button {
-  font-family: helvetica, sans-serif;
+  font-family: helvetica, serif;
   font-size: 16px;
   color: #000;
+
+  margin-top: 20px;
 }
 
 #remove-button .fa-map-pin {
