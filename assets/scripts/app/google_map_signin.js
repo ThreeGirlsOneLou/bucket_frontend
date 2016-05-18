@@ -171,14 +171,13 @@ const addPoints = function() {
           } else if (app.mapReload === 0) {
             window.setTimeout(marker.setAnimation(google.maps.Animation.DROP), i*500);
           }
-
-          console.log('map reload = ' + app.mapReload);
-
       }
 
+      console.log('map reload = ' + app.mapReload);
       map.fitBounds(bounds);
     }
 
+    if (locations.length === 1) { map.setZoom(10) };
     app.mapReload += 1;
 };
 
