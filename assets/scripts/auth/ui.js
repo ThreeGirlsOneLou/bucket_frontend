@@ -49,10 +49,10 @@ const signInSuccess = (data) => {
   }, 1000);
   // $('body').css('overflow-y', 'auto');
   // $('#map').scrollTop(1000);
+  app.mapReload = 0;
   loadMap.clearMap();
   loadMap.addPoints();
   loadBucket.loadBucket();
-  app.mapReload = 0;
 };
 
 const changePWSuccess = (data) => {
