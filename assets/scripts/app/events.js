@@ -16,6 +16,9 @@ const addHandlers = () => {
                            appUi.addLocationFailure,
                            user_id, name, long, lat,
                            app.flickrURL);
+    $(this).hide();
+    $('#remove-button').show();
+    $('#photo-ribbon').fadeIn("slow");
   });
 
   $('#location-list').on('click','.visited', function (event){
@@ -40,6 +43,27 @@ const addHandlers = () => {
                                 app.user._id,
                                 location_id);
       });
+
+    $('#remove-button').on('click', function(event) {
+      event.preventDefault();
+      $(this).hide();
+      $('#add-button').show();
+      $('#photo-ribbon').fadeOut("slow");
+
+      let location_id;
+      for (let i = 0; i < app.user.locations.length; i++) {
+        if (app.user.locations[i].name === app.searchaddress) {
+          location_id = app.user.locations[i]._id;
+        }
+      }
+
+      console.log(location_id);
+      console.log("remove button clicked under photo");
+      appApi.deleteUserLocation(appUi.deleteLocationSuccess,
+                                appUi.deleteLocationFailure,
+                                app.user._id,
+                                location_id);
+    });
 };
 
 
