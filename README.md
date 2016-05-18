@@ -1,4 +1,4 @@
-# WanderList Frontend
+# Wanderlist Frontend
 
 
 
@@ -7,9 +7,9 @@ Backend Repo: https://github.com/ThreeGirlsOneLou/bucket_backend
 
 Deployed Frontend: ______________________________
 
-Our group created an app, WanderList, based on the idea of a "bucket list".  A bucket list is a list of life experiences that a person wants to pursue.  We took this and narrowed the scope, making an app that focuses on a location that user wants to visit.  A registered user searches a location on an embedded Google map and the Flickr API will return a photo tagged with that location name and Wikipedia will return it's wiki entry.  The user can then add it to their wanderlist.  After visiting that location, the user can mark it as 'visited', or even remove it from their list entirely.
+Our group created an app, Wanderlist, based on the idea of a "bucket list".  A bucket list is a list of life experiences that a person wants to pursue.  We took this and narrowed the scope, making an app that focuses on a location that user wants to visit.  A registered user searches a location on an embedded Google map and the Flickr API will return a photo tagged with that location name and Wikipedia will return it's wiki entry.  The user can then add it to their wanderlist.  After visiting that location, the user can mark it as 'visited', or even remove it from their list entirely.
 
-To build this app we used Node, Express, Mongo, Handlebars, Javascript, HTML5, CSS3 and Bootstrap.  We connected to the Google Maps, Google Places, Flickr, and Wikipedia APIs.
+To build this app we used Node, Express, Mongo, Handlebars, Flexbox, Javascript, HTML5, CSS3 and Bootstrap.  We connected to the Google Maps, Google Places, Flickr, and Wikipedia APIs.
 
 Our approach began with basic HTML and CSS after completing our user stories and wireframes.  From there, we built the back end using two models, Users and Locations.  The locations model is a subdocument inside of users.  As a user accrues locations, the locations get embedded as arrays, each location as an object.
 
