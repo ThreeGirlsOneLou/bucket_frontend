@@ -64,6 +64,10 @@ const changePWSuccess = (data) => {
 
 const changePWFail = (error) => {
   console.error(error);
+  $('#change-pw-modal-content').append('<div class="alert alert-danger" role="alert">Error changing password</div>');
+  setTimeout(function(){
+    $('#change-pw-modal-content > .alert').hide();
+  }, 3000);
   // show div that says 'error changing password'
 };
 
@@ -84,15 +88,19 @@ const success = (data) => {
 
 const signInFail = (error) => {
   console.error(error);
-  $('#sign-in').append('<div class="alert alert-danger" role="alert">Invalid e-mail or password</div>');
+  $('#signInModalContent').append('<div class="alert alert-danger" role="alert">Invalid e-mail or password</div>');
   setTimeout(function(){
-    $('#sign-in-modal > .alert').hide();
-  }, 2000);
+    $('#signInModalContent> .alert').hide();
+  }, 3000);
   // show div that says 'Invalid e-mail or password'
 };
 
 const regFail = (error) => {
   console.error(error);
+  $('#registerModalContent').append('<div class="alert alert-danger" role="alert">E-mail already registered. Please sign in or sign up with a different e-mail.</div>');
+  setTimeout(function(){
+    $('#registerModalContent> .alert').hide();
+  }, 3000);
   // show div that says 'E-mail already registered. Please sign in or sign up with a different e-mail'
 };
 
