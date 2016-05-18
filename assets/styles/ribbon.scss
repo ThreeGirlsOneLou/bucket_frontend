@@ -1,0 +1,16 @@
+.ribbon {
+  background-color: rgba(12, 24, 177, 0.8);
+  /* top left corner */
+  position: absolute;
+  top: 100px;
+}
+
+.ribbon a {
+  color: #fff;
+  display: block;
+  font: 90% 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  margin: 1px 0;
+  padding: 10px 50px;
+  text-align: center;
+  text-decoration: none;
+}
