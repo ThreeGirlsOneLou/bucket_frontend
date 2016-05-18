@@ -21,6 +21,7 @@ const signOutSuccess = (data) => {
   $('#add-button').hide();
   $('#remove-button').hide();
   $('html, body').css('overflow-y', 'hidden');
+  $('#info-button').hide();
   loadMap.clearMap();
   $('#sign-in').each(function(){
      this.reset();
