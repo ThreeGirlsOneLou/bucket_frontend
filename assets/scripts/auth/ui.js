@@ -52,7 +52,7 @@ const signInSuccess = (data) => {
   loadMap.clearMap();
   loadMap.addPoints();
   loadBucket.loadBucket();
-  loadMap.mapReload = 0;
+  app.mapReload = 0;
 };
 
 const changePWSuccess = (data) => {
