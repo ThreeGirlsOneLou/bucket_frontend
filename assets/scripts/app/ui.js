@@ -24,9 +24,11 @@ const addLocationSuccess = (data) => {
   console.log('Success');
   console.log(data);
   app.user.locations = data.user.locations;
+  app.addLocation = true;
   loadBucket.loadBucket();
   loadMap.clearMap();
   loadMap.addPoints();
+  console.log('add location success ' + app.addLocation);
 };
 
 const addLocationFailure = (data) => {
@@ -71,6 +73,7 @@ const deleteLocationSuccess = (data) => {
   appApi.getUserLocations(getLocationsSuccess,
                           getLocationsFailure,
                           app.user._id);
+  app.addLocation = false;
 };
 
 const deleteLocationFailure = (data) => {

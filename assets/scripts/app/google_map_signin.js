@@ -5,7 +5,6 @@ const flickr = require('./flickr.js');
 const wiki = require('./wiki.js');
 let map;
 let markers = [];
-app.mapReload = 0;
 let locations;
 let searchMarker;
 let searchInfowindow;
@@ -129,7 +128,6 @@ const loadMap = function() {
 };
 
 const addPoints = function() {
-
     locations = app.user.locations;
     console.log(locations);
 
@@ -169,19 +167,19 @@ const addPoints = function() {
           bounds.extend(marker.getPosition());
           markers.push(marker);
 
-          if (app.mapReload > 0 && i === locations.length - 1) {
-            marker.setAnimation(4);
-          } else if (app.mapReload === 0) {
+          console.log('appLocation =' + app.addLocation);
+          if (app.mapReload === 0) {
             window.setTimeout(marker.setAnimation(google.maps.Animation.DROP), i*500);
+          } else if (app.addLocation === true && i === locations.length - 1) {
+            marker.setAnimation(4);
           }
       }
-
+      app.mapReload += 1;
       console.log('map reload = ' + app.mapReload);
       map.fitBounds(bounds);
     }
 
     if (locations.length === 1) { map.setZoom(10) };
-    app.mapReload += 1;
 };
 
 // Sets the map on all markers in the array.
