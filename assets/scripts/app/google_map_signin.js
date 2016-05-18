@@ -7,6 +7,8 @@ let map;
 let markers = [];
 app.mapReload = 0;
 let locations;
+let searchMarker;
+let searchInfowindow;
 
 let mapStyle = [{"featureType":"all","elementType":"labels.text","stylers":[{"color":"#ffffff"}]},{"featureType":"all","elementType":"labels.text.fill","stylers":[{"color":"#231f20"}]},{"featureType":"all","elementType":"labels.icon","stylers":[{"weight":"2.19"},{"saturation":"11"}]},{"featureType":"administrative","elementType":"labels.text.fill","stylers":[{"color":"#444444"}]},{"featureType":"landscape","elementType":"all","stylers":[{"color":"#f2f2f2"}]},{"featureType":"poi","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"road","elementType":"all","stylers":[{"saturation":-100},{"lightness":45}]},{"featureType":"road.highway","elementType":"all","stylers":[{"visibility":"simplified"}]},{"featureType":"road.arterial","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"transit","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"water","elementType":"all","stylers":[{"color":"#9cd8d2"},{"visibility":"on"}]}];
 
@@ -33,19 +35,19 @@ const addSearchBar = function(map) {
     scale: 0.5
   }
 
-  var infowindow = new google.maps.InfoWindow();
-  var marker = new google.maps.Marker({
+  searchInfowindow = new google.maps.InfoWindow();
+  searchMarker = new google.maps.Marker({
     map: map,
     icon: image
   });
-  google.maps.event.addListener(marker, 'click', function() {
-    infowindow.open(map, marker);
+  google.maps.event.addListener(searchMarker, 'click', function() {
+    searchInfowindow.open(map, searchMarker);
   });
 
   // Get the full place details when the user selects a place from the
   // list of suggestions.
   google.maps.event.addListener(autocomplete, 'place_changed', function() {
-    infowindow.close();
+    searchInfowindow.close();
     var place = autocomplete.getPlace();
     if (!place.geometry) {
       return;
@@ -59,14 +61,14 @@ const addSearchBar = function(map) {
     // }
 
     // Set the position of the marker using the place ID and location.
-    marker.setPlace(/** @type {!google.maps.Place} */ ({
+    searchMarker.setPlace(/** @type {!google.maps.Place} */ ({
       placeId: place.place_id,
       location: place.geometry.location
     }));
-    marker.setVisible(true);
+    searchMarker.setVisible(true);
 
-    infowindow.setContent('<div><strong>' + place.formatted_address + '</strong><br>');
-    infowindow.open(map, marker);
+    searchInfowindow.setContent('<div><strong>' + place.formatted_address + '</strong><br>');
+    searchInfowindow.open(map, searchMarker);
 
     // save current search data
     app.searchname = place.name;
@@ -202,6 +204,8 @@ function showMarkers() {
 const clearMap = function() {
   clearMarkers();
   markers = [];
+  searchMarker.setVisible(false);
+  searchInfowindow.close();
 };
 
 module.exports = {
