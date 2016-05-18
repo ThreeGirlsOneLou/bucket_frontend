@@ -15,13 +15,35 @@ body {
   height: 100%;
 }
 
+body {
+  background-image: url('/../assets/images/grey.png');
+  background-repeat: repeat;
+}
+
 body.container-fluid {
   margin: 0 auto;
   padding: 0;
 }
 
+.inner {
+  height: 100%;
+  overflow: hidden;
+  width: 100%;
+  // padding-top: 30px;
+}
+
+.inner img {
+  width: 70%;
+  overflow: hidden;
+}
+
 #location-list {
-  margin-top: 20px;
+  padding: 20px 50px 0;
+}
+
+#locationContainer {
+  background-color: black;
+  width: 100%;
 }
 
 html, body {
