@@ -38,7 +38,12 @@ body.container-fluid {
 }
 
 #location-list {
-  margin-top: 20px;
+  padding: 20px 50px 0;
+}
+
+#locationContainer {
+  background-color: black;
+  width: 100%;
 }
 
 html, body {
