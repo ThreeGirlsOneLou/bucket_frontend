@@ -28,6 +28,7 @@ const signOutSuccess = (data) => {
    });
   $('#pac-input').val('');
   $('#photo-ribbon').fadeOut("slow");
+  app.mapReload = 0;
 };
 
 
@@ -51,6 +52,7 @@ const signInSuccess = (data) => {
   loadMap.clearMap();
   loadMap.addPoints();
   loadBucket.loadBucket();
+  loadMap.mapReload = 0;
 };
 
 const changePWSuccess = (data) => {
