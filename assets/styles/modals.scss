@@ -2,17 +2,10 @@
    background-image: url(https://i.ytimg.com/vi/4AA4qYGunr4/maxresdefault.jpg);
 }
 
-.modal-content {
-  background-color: $modal-content;
-}
-
-.modal-header {
-  color: $modal-header;
-}
-
 .register-opp {
   display: block;
-  text-align: center;
+  text-align: left;
+  margin-left: 20px
 }
 
 .modal .btn {
