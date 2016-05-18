@@ -5,7 +5,6 @@ header {
     color: #fff;
     width: 100%;
     background-color: black;
-    font-family: 'Dancing Script';
 }
 
 header .header-content {
@@ -59,23 +58,40 @@ header .header-content {
   background: rgba(0,0,0,0.4);
 }
 
-.open-sign-up, .open-sign-in {
+.landing-button {
   background-color: none;
   border: 2px solid white;
-  border-radius: 25%;
+  border-radius: 15%;
   color: white;
   width: 110px;
   text-align: center;
-  padding: 0 10px;
+  padding: 15px 30px;
   margin: 0 10px;
 }
 
-.open-sign-up a:hover, .open-sign-in a:hover {
-  background-color: white;
-  border-radius: 25%;
+.landing-button:hover {
+  background-color: rgba(255, 255, 255, 0.6);
   color: black;
+  text-decoration: none;
+}
+
+#landingButtons {
+  position: relative;
+  top: -130px;
+  list-style-type: none;
+  width: 100%;
+  text-align: center;
 }
 
 .open-sign-up a, .open-sign-in a {
   color: white;
+}
+
+#landingButtons li {
+  float: left;
+}
+
+#landingButtons {
+  display: flex;
+  justify-content: center;
 }
