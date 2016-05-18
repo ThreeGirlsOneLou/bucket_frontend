@@ -91,6 +91,7 @@ const addSearchBar = function(map) {
       $('#add-button').hide();
       $('#remove-button').show();
       $('#info-button').show();
+      $('.infoSection').hide();
       setTimeout(function() {
         $('#photo-ribbon').fadeIn("slow");
       }, 500);
@@ -130,6 +131,7 @@ const loadMap = function() {
 const addPoints = function() {
     locations = app.user.locations;
     console.log(locations);
+    const ui = require('./ui.js');
 
     if (locations.length > 0) {
       var infowindow = new google.maps.InfoWindow;
@@ -161,6 +163,13 @@ const addPoints = function() {
                return function() {
                    infowindow.setContent('<div><strong>' + locations[i].name + '</strong></div>');
                    infowindow.open(map, marker);
+                   $('.infoSection').hide();
+                   $('#search-result-name').text(locations[i].name);
+                   flickr.getPhotos(ui.getPhotosSuccess, ui.getPhotosFailure, locations[i].name);
+                   let searchAry = locations[i].name.split(',');
+                   wiki.getWikiInfo(ui.getWikiInfoSuccess,
+                                    ui.getWikiInfoFailure,
+                                    searchAry[0]);
                };
           })(marker, i));
 
