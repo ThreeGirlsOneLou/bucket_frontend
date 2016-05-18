@@ -38,8 +38,9 @@ body.container-fluid {
   overflow: hidden;
 }
 
-.infoContainer {
-  background-color: black;
+#infoContainer {
+  height: 90%;
+  background-color: $tan;
 }
 
 #location-list {
@@ -47,7 +48,6 @@ body.container-fluid {
 }
 
 #locationContainer {
-  background-color: black;
   width: 100%;
 }
 
