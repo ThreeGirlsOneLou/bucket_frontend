@@ -100,6 +100,7 @@ const addSearchBar = function(map) {
       $('#remove-button').hide();
       $('#add-button').show();
       $('#photo-ribbon').fadeOut("slow");
+      $('.infoSection').hide();
       $('#info-button').show();
     }
 
