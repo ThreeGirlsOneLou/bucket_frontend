@@ -1,5 +1,3 @@
-
-
 .flickr_row .col-md-6 {
   height: 96vh;
 }
@@ -25,19 +23,25 @@
   padding-left: 20px;
 }
 
-#add-button {
-font-family: helvetica, sans-serif; ;
-font-size: 20px;
-font-weight: bold;
-color: #0952cf;
+#add-button,
+#remove-button {
+  font-family: helvetica, sans-serif;
+  font-size: 16px;
+  color: #000;
+}
+
+#remove-button .fa-map-pin {
+  color: #FF0000;
+}
+
+#add-button .fa-map-pin {
+  color: #0952cf;
 }
 
 .fa-map-pin {
-  margin-right: 20px;
+  margin-right: 15px;
   font-size: 30px;
 }
-
-
 
 .bucketContent {
   padding: 50px;
