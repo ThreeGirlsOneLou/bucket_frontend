@@ -80,6 +80,7 @@ const addSearchBar = function(map) {
     for (let i = 0; i < locations.length; i++) {
       if (locations[i].name === place.formatted_address) {
         inList = true;
+        // app.locationSearchID = locations[i]._id;
         console.log ('place already in list');
       }
     }
