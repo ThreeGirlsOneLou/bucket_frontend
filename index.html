@@ -43,10 +43,6 @@
               </ul>
             </li>
 
-            <!-- SIGN UP/IN BUTTONS-->
-            <li class="open-sign-up" id="sign-up-button"><a href="#" data-toggle="modal" data-target="#sign-up-modal">Sign Up</a></li>
-            <li class="open-sign-in" id="sign-in-button"><a href="#" data-toggle="modal" data-target="#sign-in-modal">Sign In</a></li>
-
             </ul>
           </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
@@ -58,20 +54,17 @@
         <div class="header-content">
             <div class="inner">
                 <img src="/assets/images/wanderlist-logo-wht.png">
+
+                <!-- SIGN UP/IN BUTTONS-->
+                <ul id="landingButtons">
+                  <li class="open-sign-up" id="sign-up-button"><a href="#" data-toggle="modal" data-target="#sign-up-modal">Sign Up</a></li>
+                  <li class="open-sign-in" id="sign-in-button"><a href="#" data-toggle="modal" data-target="#sign-in-modal">Sign In</a></li>
+                </ul>
+                <!--END SIGN UP/IN BUTTONS-->
+                
             </div>
         </div>
-        <video autoplay class="fillWidth fadeIn wow collapse in fadeOut" src="/assets/movies/video_0.mov" id="video-background" onended="run();"></video>
-
-        <script>
-          let video_count = 0;
-          let video = document.getElementById("video-background");
-
-          function run(){
-              video_count++;
-              if (video_count == 4) video_count = 0;
-              video.setAttribute("src","/assets/movies/video_"+video_count+".mov");
-            }
-        </script>
+        <video autoplay loop class="fillWidth fadeIn wow collapse in fadeOut" src="/assets/movies/wanderlist.mov" id="video-background"></video>
   </header>
   <!--END LANDING PAGE-->
 
