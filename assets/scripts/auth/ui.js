@@ -21,12 +21,14 @@ const signOutSuccess = (data) => {
   $('#add-button').hide();
   $('#remove-button').hide();
   $('html, body').css('overflow-y', 'hidden');
+  $('#info-button').hide();
   loadMap.clearMap();
   $('#sign-in').each(function(){
      this.reset();
    });
   $('#pac-input').val('');
   $('#photo-ribbon').fadeOut("slow");
+  app.mapReload = 0;
 };
 
 
@@ -50,6 +52,7 @@ const signInSuccess = (data) => {
   loadMap.clearMap();
   loadMap.addPoints();
   loadBucket.loadBucket();
+  loadMap.mapReload = 0;
 };
 
 const changePWSuccess = (data) => {

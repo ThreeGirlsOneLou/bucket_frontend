@@ -5,7 +5,7 @@ const flickr = require('./flickr.js');
 const wiki = require('./wiki.js');
 let map;
 let markers = [];
-let mapReload = 0;
+app.mapReload = 0;
 let locations;
 
 let mapStyle = [{"featureType":"all","elementType":"labels.text","stylers":[{"color":"#ffffff"}]},{"featureType":"all","elementType":"labels.text.fill","stylers":[{"color":"#231f20"}]},{"featureType":"all","elementType":"labels.icon","stylers":[{"weight":"2.19"},{"saturation":"11"}]},{"featureType":"administrative","elementType":"labels.text.fill","stylers":[{"color":"#444444"}]},{"featureType":"landscape","elementType":"all","stylers":[{"color":"#f2f2f2"}]},{"featureType":"poi","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"road","elementType":"all","stylers":[{"saturation":-100},{"lightness":45}]},{"featureType":"road.highway","elementType":"all","stylers":[{"visibility":"simplified"}]},{"featureType":"road.arterial","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"transit","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"water","elementType":"all","stylers":[{"color":"#9cd8d2"},{"visibility":"on"}]}];
@@ -166,16 +166,20 @@ const addPoints = function() {
           bounds.extend(marker.getPosition());
           markers.push(marker);
 
-          if (mapReload > 0 && i === locations.length - 1) {
+          if (app.mapReload > 0 && i === locations.length - 1) {
             marker.setAnimation(4);
+          } else if (app.mapReload === 0) {
+            window.setTimeout(marker.setAnimation(google.maps.Animation.DROP), i*500);
           }
+
+          console.log('map reload = ' + app.mapReload);
 
       }
 
       map.fitBounds(bounds);
     }
 
-    mapReload += 1;
+    app.mapReload += 1;
 };
 
 // Sets the map on all markers in the array.
@@ -199,10 +203,10 @@ function showMarkers() {
 const clearMap = function() {
   clearMarkers();
   markers = [];
-}
+};
 
 module.exports = {
   loadMap,
   addPoints,
-  clearMap
+  clearMap,
 };
