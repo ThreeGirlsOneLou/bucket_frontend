@@ -89,6 +89,7 @@ const addSearchBar = function(map) {
     if (inList === true) {
       $('#add-button').hide();
       $('#remove-button').show();
+      $('#info-button').show();
       setTimeout(function() {
         $('#photo-ribbon').fadeIn("slow");
       }, 500);
@@ -97,6 +98,7 @@ const addSearchBar = function(map) {
       $('#remove-button').hide();
       $('#add-button').show();
       $('#photo-ribbon').fadeOut("slow");
+      $('#info-button').show();
     }
 
     // call flikr API
