@@ -25,6 +25,18 @@ body.container-fluid {
   padding: 0;
 }
 
+.inner {
+  height: 100%;
+  overflow: hidden;
+  width: 100%;
+  // padding-top: 30px;
+}
+
+.inner img {
+  width: 70%;
+  overflow: hidden;
+}
+
 #location-list {
   margin-top: 20px;
 }
