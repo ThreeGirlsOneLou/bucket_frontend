@@ -56,3 +56,31 @@
 .flickrContainer {
   padding: 50px;
 }
+
+#locationText {
+  display: flex;
+  border: 1px solid blue;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#locationText a {
+  border: 1px solid red;
+  align-self: center;
+  width: 100%;
+  margin: 0;
+  padding: 20;
+}
+
+#info-button {
+  // position: relative;
+  // display: flex;
+  color: #000;
+  font-size: 1.8em;
+  // top: 70px;
+}
+
+#info-button:hover {
+  color: rgb(134, 136, 135);
+}
