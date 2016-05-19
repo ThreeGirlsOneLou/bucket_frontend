@@ -54,22 +54,37 @@
 }
 
 .flickrContainer {
-  padding: 50px;
+  padding: 50px 50px 0 50px;
 }
 
 #locationText {
   display: flex;
-  border: 1px solid blue;
   // flex-direction: column;
   align-items: center;
   justify-content: left;
 }
 
 #left-area {
+  width: 175px;
   display: flex;
   flex-direction: column;
-  align-items: left;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid purple;
+  height: 40px;
+}
+
+#left-area a {
+  display: flex;
   justify-content: flex-start;
+  align-items: flex-start;
+  font-size: 12px;
+  align-self: flex-start;
+  text-decoration: none;
+}
+
+#left-area span {
+  font-size: 16px;
 }
 
 #locationText a {
@@ -83,25 +98,45 @@
 
 #locationText label {
   font-weight: normal;
-  font-size: 10px;
   font-color: rgb(69, 71, 71);
+  align-items: flex-start;
 }
 
 #info-button {
-  // position: relative;
-  // display: flex;
   color: #000;
-  font-size: 1.8em;
-  // top: 70px;
+  font-size: 3em;
 }
 
 #info-button:hover {
   color: rgb(134, 136, 135);
 }
 
+#holds-search-name {
+  border-left: 1px solid rgba(41, 42, 40, 0.5);
+  height: 60%;
+  display: flex;
+  flex-direction: column;
+  // align-items: center;
+  justify-content: center;
+}
+
 #locationText h3 {
-  height: 100%;
   vertical-align: middle;
-  border-left: 1px solid black;
   padding-left: 20px;
+}
+
+.fa-map-pin, .glyphicon-info-sign {
+  padding-right: 20px;
+  align-items: flex-start;
+  border: 1px solid green;
+  font-size: 30px;
+}
+
+.glyphicon-info-sign {
+  margin-top: 15px;
+  height: 30px;
+}
+
+#info-button label {
+  margin-top: 15px;
 }
