@@ -22,6 +22,7 @@ const signOutSuccess = (data) => {
   $('#add-button').hide();
   $('#remove-button').hide();
   $('html, body').css('overflow-y', 'hidden');
+  $('html, body').css('overflow-x', 'hidden');
   $('#info-button').hide();
   loadMap.clearMap();
   $('#sign-in').each(function(){
@@ -46,6 +47,7 @@ const signInSuccess = (data) => {
   $('#username').text(app.user.email);
   // $('#landing-page').css("display", "none");
   $('html, body').css('overflow-y', 'visible');
+  $('html, body').css('overflow-x', 'visible');
   $('html, body').animate({
     scrollTop: $('.flickr_row').offset().top - 30
   }, 1000);
