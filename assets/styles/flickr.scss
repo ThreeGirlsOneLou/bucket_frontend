@@ -24,14 +24,6 @@
   text-align: center;
 }
 
-#add-button,
-#remove-button {
-  font-family: helvetica, serif;
-  font-size: 16px;
-  color: #000;
-  margin-top: 20px;
-}
-
 #add-button:hover {
   color: rgb(134, 136, 135);
 }
@@ -40,12 +32,12 @@
   color: rgb(134, 136, 135);
 }
 
-#remove-button .fa-map-pin {
+#remove-button .glyphicon-map-marker {
   color: #FF0000;
 }
 
-#add-button .fa-map-pin {
-  color: #0952cf;
+#add-button .glyphicon-map-marker {
+  color: #50157d;
 }
 
 .fa-map-pin {
@@ -70,7 +62,6 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  border: 1px solid purple;
   height: 40px;
 }
 
@@ -88,7 +79,6 @@
 }
 
 #locationText a {
-  border: 1px solid red;
   align-self: center;
   width: 100%;
   margin: 0;
@@ -113,11 +103,13 @@
 
 #holds-search-name {
   border-left: 1px solid rgba(41, 42, 40, 0.5);
+  margin-left: 10px;
   height: 60%;
   display: flex;
   flex-direction: column;
   // align-items: center;
   justify-content: center;
+  padding-right: 10px;
 }
 
 #locationText h3 {
@@ -125,10 +117,9 @@
   padding-left: 20px;
 }
 
-.fa-map-pin, .glyphicon-info-sign {
+.glyphicon-info-sign, .glyphicon-map-marker {
   padding-right: 20px;
   align-items: flex-start;
-  border: 1px solid green;
   font-size: 30px;
 }
 
