@@ -81,8 +81,11 @@ body.container-fluid {
 
 .wanderTitle {
   width: 100%;
+  padding-top: 50px;
   text-align: center;
   font-size: 400%;
+  color: $white;
+  background-color: $list-background;
 }
 
 #directions {
