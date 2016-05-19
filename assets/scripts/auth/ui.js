@@ -8,6 +8,7 @@ const authApi = require('./api.js');
 // const appUi = require('../app/ui.js');
 
 const signOutSuccess = (data) => {
+  $('#navbar').hide();
   console.log("User successfully signed out");
   app.user = data;
   console.log(app.user);
@@ -37,6 +38,7 @@ const signInSuccess = (data) => {
   app.user = data.user;
   console.log(app.user);
   console.log(data.user.email + " successfully signed in");
+  $('#navbar').fadeIn("slow");
   $('#sign-in-modal').modal('hide');
   $('#signed-in-menu').css('visibility', 'visible');
   $('#sign-in-button').hide();
@@ -45,7 +47,7 @@ const signInSuccess = (data) => {
   // $('#landing-page').css("display", "none");
   $('html, body').css('overflow-y', 'visible');
   $('html, body').animate({
-    scrollTop: $('.flickr_row').offset().top
+    scrollTop: $('.flickr_row').offset().top - 30
   }, 1000);
   // $('body').css('overflow-y', 'auto');
   // $('#map').scrollTop(1000);
