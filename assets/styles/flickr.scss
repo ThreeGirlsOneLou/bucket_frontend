@@ -60,9 +60,16 @@
 #locationText {
   display: flex;
   border: 1px solid blue;
-  flex-direction: column;
+  // flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: left;
+}
+
+#left-area {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  justify-content: flex-start;
 }
 
 #locationText a {
@@ -71,6 +78,13 @@
   width: 100%;
   margin: 0;
   padding: 20;
+  align-items: flex-start;
+}
+
+#locationText label {
+  font-weight: normal;
+  font-size: 10px;
+  font-color: rgb(69, 71, 71);
 }
 
 #info-button {
@@ -83,4 +97,11 @@
 
 #info-button:hover {
   color: rgb(134, 136, 135);
+}
+
+#locationText h3 {
+  height: 100%;
+  vertical-align: middle;
+  border-left: 1px solid black;
+  padding-left: 20px;
 }
