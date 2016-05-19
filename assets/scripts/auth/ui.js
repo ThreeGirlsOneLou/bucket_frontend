@@ -31,6 +31,7 @@ const signOutSuccess = (data) => {
   $('#pac-input').val('');
   $('#photo-ribbon').fadeOut("slow");
   app.mapReload = 0;
+  $('.infoSection').show();
 };
 
 
