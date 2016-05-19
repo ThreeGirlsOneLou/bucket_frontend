@@ -1,6 +1,17 @@
-#slogan{
+body {
+  font-family: 'Raleway', sans-serif;
+}
+
+#slogan {
   font-family: 'Raleway', sans-serif;
   text-align: center;
   font-size: 200%;
+  text-transform: lowercase;
+}
+
+#directions {
+  font-family: 'Raleway', sans-serif;
+  text-align: center;
+  font-size: 100%;
   text-transform: lowercase;
 }
