@@ -49,7 +49,7 @@ const signInSuccess = (data) => {
   $('html, body').css('overflow-y', 'visible');
   $('html, body').css('overflow-x', 'visible');
   $('html, body').animate({
-    scrollTop: $('.flickr_row').offset().top - 30
+    scrollTop: $('.flickr_row').offset().top - 20
   }, 1000);
   // $('body').css('overflow-y', 'auto');
   // $('#map').scrollTop(1000);

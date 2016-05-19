@@ -165,6 +165,12 @@ const addPoints = function() {
                    infowindow.open(map, marker);
                    $('.infoSection').hide();
                    $('#search-result-name').text(locations[i].name);
+                   $('#add-button').hide();
+                   $('#remove-button').show();
+                   $('#info-button').show();
+                   setTimeout(function() {
+                     $('#photo-ribbon').fadeIn("slow");
+                   }, 500);
                    flickr.getPhotos(ui.getPhotosSuccess, ui.getPhotosFailure, locations[i].name);
                    let searchAry = locations[i].name.split(',');
                    wiki.getWikiInfo(ui.getWikiInfoSuccess,
