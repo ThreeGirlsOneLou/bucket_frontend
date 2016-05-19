@@ -81,10 +81,19 @@ body.container-fluid {
 
 #directions {
   margin-top: 30px;
+  color: $light-black;
 }
 
 .arrow {
   margin-top: -50px;
+  line-height: 40px;
+  -webkit-animation: bounce 2s infinite ease-in-out;
+}
+
+@-webkit-keyframes bounce {
+	0%, 20%, 60%, 100%  { -webkit-transform: translateX(0); }
+    40%  { -webkit-transform: translateX(-20px); }
+	80% { -webkit-transform: translateX(-10px); }
 }
 
 html, body {
