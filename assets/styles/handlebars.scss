@@ -24,8 +24,8 @@
 }
 
 .mask {
-    position: relative;
-    overflow: hidden;
+  position: relative;
+  overflow: hidden;
 }
 
 
@@ -88,7 +88,7 @@
 
 .view-first .mask {
   opacity: 0;
-  background-color: rgba(42, 207, 192, 0.6);
+  background-color: $purple;
   transition: all 0.4s ease-in-out;
 }
 
